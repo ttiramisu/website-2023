@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Silkroad</title>
-</head>
+{% block content %}
 
-<body>
-  <h1>Hello World</h1>
-  <a href="{{ url_for('main') }}">Redirect to main</a>
-</body>
+<h1>{% block title %} Hello World {% endblock %}</h1>
+<a href="{{ url_for('main') }}">Redirect to main</a>
 
-</html>
+{% endblock %}
