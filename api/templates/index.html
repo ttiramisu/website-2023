@@ -3,31 +3,39 @@
 {% block content %}
 
 <!-- Background image -->
-<div class="container-fluid overflow-hidden p-0">
-  <div class="row g-0">
-    <div lc-helper="background" class="col-md-6 order-md-2"
-      style="height: 70vh; background-size: cover; background-position: center; background-image: url('https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');">
 
-    </div>
-    <div class="col-md-6 order-md-1 my-auto text-center" style="padding:10vw">
 
-      <div class="lc-block mb-3">
-        <div editable="rich">
-          <h1>{% block title %} Silkroad {% endblock %}</h1>
-          <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Nullam tincidunt enim ac augue suscipit rhoncus. Donec ante erat, hendrerit sed
-            eleifend et, dapibus at leo. Mauris bibendum mi ut dui sagittis volutpat. </p>
-
+<div class="overflow-hidden">
+  <div class="container-fluid col-xxl-8">
+    <div class="row flex-lg-nowrap align-items-center g-5">
+      <div class="order-lg-1 w-100">
+        <img style="clip-path: polygon(25% 0%, 100% 0%, 100% 99%, 0% 100%);"
+          src="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          class="d-block mx-lg-auto img-fluid" loading="lazy"
+          srcset="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          sizes="(max-width: 1080px) 100vw, 1080px" width="2160" height="768">
+      </div>
+      <div class="col-lg-6 col-xl-5 text-center text-lg-start pt-lg-5 mt-xl-4">
+        <div class="lc-block mb-4">
+          <div editable="rich">
+            <h1 class="fw-bold display-3">Silkroad</h1>
+          </div>
         </div>
 
-      </div>
+        <div class="lc-block mb-5">
+          <div editable="rich">
+            <p class="rfs-8"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula malesuada
+              placerat sit amet quis enim.</p>
+          </div>
+        </div>
 
-      <div class="lc-block">
-        <a class="btn btn-primary" href="#" role="button">Learn More &DownArrow;</a>
-      </div>
+        <div class="lc-block mb-6"><a class="btn btn-primary px-4 me-md-2 btn-lg" href="#" role="button">Get it now</a>
+        </div>
+      </div><!-- /lc-block -->
     </div>
   </div>
 </div>
+
 <!-- Background image -->
 
 
