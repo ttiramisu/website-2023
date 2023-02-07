@@ -5,7 +5,7 @@
 <!-- Background image -->
 
 
-<div class="overflow-hidden">
+<!-- <div class="overflow-hidden">
   <div class="container-fluid col-xxl-8">
     <div class="row flex-lg-nowrap align-items-center g-5">
       <div class="order-lg-1 w-100">
@@ -18,7 +18,7 @@
       <div class="col-lg-6 col-xl-5 text-center text-lg-start pt-lg-5 mt-xl-4">
         <div class="lc-block mb-4">
           <div editable="rich">
-            <h1 class="fw-bold display-3">Silkroad</h1>
+            <h1 class="fw-bold display-3">{% block title %} Silkroad {% endblock %}</h1>
           </div>
         </div>
 
@@ -33,6 +33,35 @@
         </div>
       </div><!-- /lc-block -->
     </div>
+  </div>
+</div> -->
+
+
+<div class="container">
+  <div class="row py-4">
+    <div class="col-lg-4 col-sm-6">
+      <div class="lc-block ratio ratio-1x1">
+        <img style="object-fit:cover" class="img-fluid"
+          src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8N3x8d29tYW58ZW58MHwwfHx8MTYzNDU2NTUxOA&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=768"
+          alt="Photo by Atikh Bana">
+      </div><!-- /lc-block -->
+    </div><!-- /col -->
+    <div class="col-lg-4 offset-lg-1">
+      <div class="lc-block my-5">
+        <div editable="rich">
+          <h2 class="rfs-25">{% block title %} Silkroad {% endblock %}</h2>
+        </div>
+      </div>
+      <div class="lc-block my-5">
+        <div editable="rich">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula malesuada placerat sit
+            amet quis.</p>
+        </div>
+      </div><!-- /lc-block -->
+      <div class="lc-block">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn More &DownArrow;</a>
+      </div><!-- /lc-block -->
+    </div><!-- /col -->
   </div>
 </div>
 
