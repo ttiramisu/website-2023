@@ -3,18 +3,55 @@
 {% block content %}
 
 <!-- Background image -->
-<div class="p-5 text-center bg-image" style="
-      background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
-      height: 400px;
-    ">
-  <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-    <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="text-white">
-        <h1 class="mb-3">{% block title %} 博览五千年，塑造当代贤 {% endblock %}</h1>
-        <h4 class="mb-3">nil</h4>
-        <a class="btn btn-outline-light btn-lg" href="{{ url_for('main') }}" role="button">查看最新</a>
+<div class="container-fluid pt-5">
+  <div class="row mb-4 mb-lg-5 justify-content-lg-between">
+    <div class="col-3 col-md-1 col-lg-2 d-none d-md-flex align-items-center">
+      <div class="lc-block bg-dark ratio ratio-1x1" style="opacity:0.1
+"> </div><!-- /lc-block -->
+    </div><!-- /col -->
+    <div class="col-4 col-md-3 col-lg-2 d-flex flex-column justify-content-between">
+      <div class="lc-block bg-primary ratio ratio-1x1" style="opacity:0.1
+"> </div><!-- /lc-block -->
+      <div class="lc-block">
+        <img class="img-fluid"
+          src="https://images.unsplash.com/photo-1531445075774-bfb641f42229?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8Njd8fGJ1aWxkaW5nfGVufDB8Mnx8fDE2MzQ1NTE3NDg&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080"
+          alt="Photo by Meriç Dağlı">
+      </div><!-- /lc-block -->
+    </div><!-- /col -->
+    <div class="col-4 col-md-4 col-lg-3"> <img class=""
+        src="https://images.unsplash.com/photo-1526546334624-2afe5b01088d?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8MzF8fGJ1aWxkaW5nfGVufDB8MXx8fDE2MzQ1NTE2NTE&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080"
+        style="object-fit:cover" alt="Photo by Simone Hutsch"></div><!-- /col -->
+    <div class="col-4 col-md-3 col-lg-2 d-flex flex-column justify-content-between">
+      <div class="lc-block">
+        <img class="img-fluid"
+          src="https://images.unsplash.com/photo-1528810084506-41bd091551af?crop=entropy&amp;cs=tinysrgb&amp;fit=crop&amp;fm=jpg&amp;ixid=MnwzNzg0fDB8MXxzZWFyY2h8NDJ8fGJ1aWxkaW5nfGVufDB8Mnx8fDE2MzQ1NTE3NDE&amp;ixlib=rb-1.2.1&amp;q=80&amp;w=1080&amp;h=1080"
+          alt="Photo by Simone Hutsch">
+      </div><!-- /lc-block -->
+      <div class="lc-block bg-primary ratio ratio-1x1 " style="opacity:0.1
+"> </div><!-- /lc-block -->
+    </div><!-- /col -->
+    <div class="col-3 col-md-1 col-lg-2 d-none d-md-flex  align-items-center">
+      <div class="lc-block bg-dark ratio ratio-1x1" style="opacity:0.1
+"> </div><!-- /lc-block -->
+    </div><!-- /col -->
+  </div>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="lc-block text-center col-md-8">
+      <div editable="rich">
+        <h1 class="rfs-25 fw-bold">博览五千年，塑造当代贤</h1>
       </div>
     </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="lc-block text-center col-xxl-6 col-md-8">
+      <div editable="rich">
+        <p class="lead"> 
+          display
+        </p>
+      </div>
+    </div><!-- /lc-block -->
   </div>
 </div>
 <!-- Background image -->
