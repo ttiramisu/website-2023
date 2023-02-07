@@ -1,0 +1,2 @@
+hero-image-desert.jpg:
+Photo by <a href="https://unsplash.com/@parradesign?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Giorgio Parravicini</a> on <a href="https://unsplash.com/images/nature/desert?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
