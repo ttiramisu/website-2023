@@ -1,5 +1,5 @@
-html {
-  font-family: 'Noto Sans SC', sans-serif;
+main {
+  font-family: 'Noto Sans SC', sans-serif !important;
 }
 
 .btn {
