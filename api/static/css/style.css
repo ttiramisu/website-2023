@@ -7,6 +7,7 @@ main {
   transition: all 500ms;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:active {
   background-color: #90cdfd;
 }
