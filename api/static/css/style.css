@@ -4,4 +4,9 @@ html {
 
 .btn {
   background-color: #74c0fc;
+  transition: all 500ms;
+}
+
+.btn:hover {
+  background-color: #90cdfd;
 }
