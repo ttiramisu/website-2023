@@ -3,29 +3,50 @@
 {% block content %}
 
 <!-- Background image -->
-<div class="container">
-  <div class="row py-4">
-    <div class="col-lg-4 col-sm-6">
-      <div class="lc-block ratio ratio-1x1">
-        <img style="object-fit:cover" class="img-fluid"
-          src="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80">
-      </div><!-- /lc-block -->
-    </div><!-- /col -->
-    <div class="col-lg-4 offset-lg-1">
-      <div class="lc-block my-5">
+<div class="container py-5">
+  <div class="row mb-4 mb-lg-5">
+    <div class="col-lg-9 mx-auto text-center">
+      <div class="lc-block mb-4">
         <div editable="rich">
-          <h2 class="rfs-25">{% block title %} Silkroad {% endblock %}</h2>
+          <h1 class="display-2 fw-bold">Lorem ipsum dolor sit amet, consectetur.</h1>
+        </div>
+      </div><!-- /lc-block -->
+      <!-- /lc-block -->
+
+
+      <div class="lc-block mb-4">
+        <div editable="rich">
+
+          <p class="text-muted lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit nam. Velit temporibus
+            impedit maxime repellendus esse&nbsp;</p>
+
         </div>
       </div>
-      <div class="lc-block my-5">
-        <div editable="rich">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc et metus id ligula malesuada placerat sit
-            amet quis.</p>
-        </div>
-      </div><!-- /lc-block -->
-      <div class="lc-block">
-        <a class="btn btn-lg" href="#" role="button">Learn More &DownArrow;</a>
-      </div><!-- /lc-block -->
+      <div class="lc-block d-grid d-lg-block gap-2"><a class="btn btn-primary" href="#" role="button">Click me, I'm a
+          button</a>
+        <a class="btn btn-outline-primary" href="#" role="button">Click me, I'm a button</a>
+      </div>
+      <!-- /lc-block -->
+    </div><!-- /col -->
+  </div>
+
+  <div class="row mb-4 ">
+    <div class="col-lg-10 mx-auto text-center">
+      <!-- requires glightbox, please flag the option in the picostrap customizer panel-->
+
+
+      <div class="lc-block position-relative"><img class="img-fluid rounded shadow"
+          src="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          srcset="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          sizes="(max-width: 3695px) 100vw, 3695px" width="3695" height="" alt="Photo by Clark Van Der Beken">
+          <svg xmlns="http://www.w3.org/2000/svg" width="5em" height="5em" fill="currentColor" class="text-white"
+            viewBox="0 0 16 16" lc-helper="svg-icon">
+            <path
+              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z">
+            </path>
+          </svg>
+        </a>
+      </div>
     </div><!-- /col -->
   </div>
 </div>
