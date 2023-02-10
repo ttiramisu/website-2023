@@ -5,7 +5,7 @@ main {
 .btn {
   background-color: #74c0fc;
   transition: all 500ms;
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .btn:hover,
