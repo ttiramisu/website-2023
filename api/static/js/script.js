@@ -9,4 +9,5 @@ function scrollInto(id) {
         block: "start",
         inline: "nearest"
     });
+    element.style.paddingTop("10px");
   }
