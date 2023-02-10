@@ -18,7 +18,12 @@ main {
 }
 
 .z-layout-img {
+  transition: all 500ms;
   width: 100%;
+}
+
+.z-layout-img:hover {
+  transform: translateY(-15px);
 }
 
 /* #learn-more {
