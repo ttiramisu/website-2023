@@ -11,3 +11,7 @@ main {
 .btn:active {
   background-color: #90cdfd;
 }
+
+.z-layout-img {
+  width: 100%;
+}
