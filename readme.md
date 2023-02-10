@@ -7,7 +7,7 @@ We are a group of students from Singapore who are doing research on the silk roa
 ## built with/hosted on
 
 * [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - Bootstrap
-* [Flask](https://maven.apache.org/) - Python framework used to generate routes
+* [Flask](https://flask.palletsprojects.com/en/2.2.x/) - Python framework used to generate routes
 * [Vercel](https://vercel.com/) - Web Hosting Provider
 
 ## authors
@@ -34,7 +34,7 @@ Teamsilkroad，又名博览五千年，旨在让学生更深入地了解丝绸�
 ## 构建于/托管于
 
 * [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - Bootstrap
-* [Flask](https://maven.apache.org/) - 用于生成万战路由的Python框架
+* [Flask](https://flask.palletsprojects.com/en/2.2.x/) - 用于生成万战路由的Python框架
 * [Vercel](https://vercel.com/) - 虚拟主机提供商
 
 ## 作者
