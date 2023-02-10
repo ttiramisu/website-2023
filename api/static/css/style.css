@@ -18,11 +18,14 @@ main {
 }
 
 .z-layout-img {
-  transition: all 500ms;
   width: 100%;
 }
 
-.z-layout-img:hover {
+.hero {
+  transition: all 500ms;
+}
+
+.hero:hover {
   transform: translateY(-15px);
 }
 
