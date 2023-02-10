@@ -28,7 +28,7 @@ See also the list of [contributors](https://github.com/JIN-ZIJIE/website-2023/gr
 # 网站 2023 teamsilkroad
 Teamsilkroad，又名博览五千年，旨在让学生更深入地了解丝绸之路。本网站建立在Bootstrap CSS框架之上，汇集了所有小组成员的贡献。
 
-＃＃ 关于我们
+## 关于我们
 我们是一群来自新加坡的学生，他们正在为我们的年度项目工作对丝绸之路进行研究。我们很高兴您来看我们网站的 GitHub 代码存储库
 
 ## 构建于/托管于
@@ -46,5 +46,5 @@ Teamsilkroad，又名博览五千年，旨在让学生更深入地了解丝绸�
 
 另请参阅参与此项目的[贡献者](https://github.com/JIN-ZIJIE/website-2023/graphs/contributors) 列表。
 
-＃＃ 执照
+## 执照
 * MIT
