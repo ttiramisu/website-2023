@@ -9,5 +9,4 @@ function scrollInto(id) {
         block: "start",
         inline: "nearest"
     });
-    elmnt.style.marginTop = "10px";
   }
