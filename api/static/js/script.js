@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
-console.log('bull crap shit')
+console.log('bull crap shit');
 
 function scrollInto(id) {
-    var elmnt = document.getElementById(id);
-    elmnt.scrollIntoView({
+    const element = document.getElementById(id);
+    element.scrollIntoView({
         behavior: "smooth", 
         block: "start",
         inline: "nearest"
