@@ -1,3 +1,3 @@
 'use strict'
 
-console.long('bull crap shit')
+console.log('bull crap shit')
