@@ -15,7 +15,7 @@ We are a group of students from Singapore who are doing research on the silk roa
 * **JJ Jin** - *Server side code with python* - [JJ Jin](https://github.com/JIN-ZIJIE)
 * **Salted-caramel** - *Wonderful html and css* - [Salted Caramel](https://github.com/salted-caramel)
 * **TheRodent** - *Content, images, html and css* - [TheRodent](https://github.com/TheRodent)
-* **hkr** - *Content and moral support* - [tbc](tbc)
+* **HKRdude** - *Content and moral support* - [HKRdude](https://github.com/HKRdude)
 
 See also the list of [contributors](https://github.com/JIN-ZIJIE/website-2023/graphs/contributors) who participated in this project.
 
