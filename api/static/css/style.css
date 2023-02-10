@@ -1,3 +1,7 @@
+html {
+  scroll-snap-align: start;
+}
+
 main {
   font-family: 'Noto Sans SC', sans-serif !important;
 }
