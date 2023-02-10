@@ -10,13 +10,13 @@ main {
 
 .btn:hover,
 .btn:active {
-  background-color: #90cdfd;
+  background-color: #90cdfd !important;
 }
 
 .z-layout-img {
   width: 100%;
 }
 
-section {
+/* section {
   margin-top: 150px;
-}
+} */
