@@ -1,0 +1,22 @@
+html {
+  font-family: 'Noto Sans SC' sans-serif !important;
+}
+
+.btn {
+  background-color: #4dabf7 !important;
+  color: #222 !important;
+  transform: all 500ms;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #94cdfa !important;
+}
+
+.hero-img {
+  transition: linear 500ms;
+}
+
+.hero-img:hover {
+  transform: translateY(-10px);
+}
