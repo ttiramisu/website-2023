@@ -2,62 +2,6 @@
 
 {% block content %}
 
-<!-- Background image -->
-<div class="container py-5">
-  <div class="row mb-4 mb-lg-5">
-    <div class="col-lg-9 mx-auto text-center">
-      <div class="lc-block mb-4">
-        <div editable="rich">
-          <h1 class="display-2 fw-bold">{% block title %} 博览五千年 {% endblock %}</h1>
-        </div>
-      </div><!-- /lc-block -->
-      <!-- /lc-block -->
-
-
-      <div class="lc-block mb-4">
-        <div editable="rich">
-
-          <p class="text-muted lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit nam. Velit temporibus
-            impedit maxime repellendus esse&nbsp;</p>
-
-        </div>
-      </div>
-      <div class="lc-block d-grid d-lg-block gap-2">
-        <a class="btn" role="button" onclick="scrollInto('learn-more')">Learn More &DownArrow;</a>
-        <!-- <a class="btn" href="#" role="button">Click me, I'm a button</a> -->
-      </div>
-      <!-- /lc-block -->
-    </div><!-- /col -->
-  </div>
-
-  <div class="row mb-4 ">
-    <div class="col-lg-10 mx-auto text-center">
-      <!-- requires glightbox, please flag the option in the picostrap customizer panel-->
-
-
-      <div class="lc-block position-relative"><img class="img-fluid rounded shadow hero"
-          src="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-          srcset="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-          sizes="(max-width: 3695px) 100vw, 3695px" width="3695" height="" alt="Photo by Clark Van Der Beken">
-      </div>
-    </div><!-- /col -->
-  </div>
-</div>
-<!-- Background image -->
-
-<!-- Z layout -->
-<section id="learn-more">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-        <img src="{{url_for('static', filename='img/logo.png')}}" alt="" class="z-layout-img">
-      </div>
-      <div class="col-sm">
-        Text goes in here
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Z layout -->
+<h1>HI</h1>
 
 {% endblock %}
