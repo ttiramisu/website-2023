@@ -28,19 +28,16 @@
 
 <body>
   <header class="header">
-    <a href="#">
-      <img class="logo" alt="Omnifood logo" src="img/omnifood-logo.png" />
+    <a href="{{ url_for('index') }} ">
+      <img class="logo" alt="logo" src="https://i.ibb.co/Zgzpzhf/logo.png" />
     </a>
 
     <nav class="main-nav">
       <ul class="main-nav-list">
-        <li><a class="main-nav-link" href="#how">How it works</a></li>
-        <li><a class="main-nav-link" href="#meals">Meals</a></li>
+        <li><a class="main-nav-link" href="{{ url_for('main') }}">All Products</a></li>
         <li>
-          <a class="main-nav-link" href="#testimonials">Testimonials</a>
+          <div id="google_translate_element"></div>
         </li>
-        <li><a class="main-nav-link" href="#pricing">Pricing</a></li>
-        <li><a class="main-nav-link nav-cta" href="#cta">Try for free</a></li>
       </ul>
     </nav>
 
