@@ -19,6 +19,7 @@
 
   <!-- PERSONAL STYLESHEET -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" async>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}" async>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/queires.css') }}" async>
   <!-- PERSONAL STYLESHEET -->
 
@@ -29,7 +30,7 @@
 <body>
   <header class="header">
     <a href="#">
-      <img class="logo" alt="Omnifood logo" src="img/omnifood-logo.png" />
+      <img class="logo" alt="Omnifood logo" src="{{url_for('static', filename='img/logo.png')}}" />
     </a>
 
     <nav class="main-nav">
