@@ -2,6 +2,10 @@ html {
   font-family: 'Noto Sans SC' sans-serif !important;
 }
 
+main {
+  margin-top: 60px;
+}
+
 .btn {
   background-color: #4dabf7 !important;
   color: #222 !important;
