@@ -1,7 +1,107 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% extends 'base.html' %}
 
-<h1>HI</h1>
+{% block content %}
+
+
+<section class="section-hero">
+  <div class="hero">
+    <div class="hero-text-box">
+      <h1 class="heading-primary">
+        Hemay Veterinary Surgical Pte Ltd
+      </h1>
+      <p class="hero-description">
+        Leading manufacturer of various animal medical technology supplies. Trusted by many worldwide
+      </p>
+      <a href="{{ url_for('main') }}" class="btn btn--full margin-right-sm">See All Veterinary Orthopedic Products
+        &rightarrow;</a>
+    </div>
+    <div class="hero-img-box">
+      <picture>
+        <!-- <source srcset="img/hero.webp" type="image/webp" />
+          <source srcset="img/hero-min.png" type="image/png" /> -->
+        <img src="https://i.ibb.co/Gky0GW1/hero.jpg" class="hero-img" alt="vet giving dog medicine" />
+      </picture>
+    </div>
+  </div>
+</section>
+
+<section class="section-how" id="brand">
+  <div class="container">
+    <!-- <span class="subheading">How it works</span> -->
+    <h2 class="heading-secondary">
+      Brand
+    </h2>
+  </div>
+
+  <div class="container grid grid--2-cols grid--center-v">
+    <!-- STEP 01 -->
+    <div class="step-text-box">
+      <p class="step-number">Hemay</p>
+      <p class="step-description">
+        Hemay is an international animal medical product, Sino-Singapore cooperative product enterprise. The core
+        competitiveness focuses on the design and production of animal orthopedic equipment, and actively integrates
+        the latest foreign technology and innovative products and solutions for extensive cooperation with domestic
+        and foreign medical experts.
+      </p>
+    </div>
+
+    <div class="step-img-box">
+      <img src="https://i.ibb.co/Zgzpzhf/logo.png" class="step-img small" alt="hemay logo" />
+    </div>
+
+    <!-- STEP 02 -->
+    <div class="step-img-box">
+      <img src="https://i.ibb.co/nBHw735/mag-glass.png" class="step-img small" alt="magnifying glass" />
+    </div>
+    <div class="step-text-box">
+      <p class="step-number">Research</p>
+      <p class="step-description">
+        The purpose of research is to improve animal welfare and provide animals with a higher quality of life.
+        After decades of design and production experience, the company has become China's leading manufacturer of
+        Department of orthopedics equipment. At present, our company brand provides medical institutions with a full
+        range of special steel plates and screws and various special animal patent products, which are suitable for
+        bone repair of small and medium-sized animals in different parts. The invention of various orthopedic
+        instruments makes doctors' operations more scientific convenient, fast, and making the postoperative effect
+        more ideal.
+      </p>
+    </div>
+
+    <!-- STEP 03 -->
+    <div class="step-text-box">
+      <p class="step-number">Products</p>
+      <p class="step-description">
+
+        Our products cover mainland China, Hong Kong, Macao and Taiwan, Southeast Asian countries, and have entered
+        Australia, Europe, North and South America and Africa. The classic brand of instruments and equipment
+        products are used in teaching and treatment of major animal science research institutes, provincial and
+        municipal animal husbandry stations, and police canine bases in China.
+      </p>
+    </div>
+    <div class="step-img-box">
+      <img src="https://i.ibb.co/68tH3xj/section-4.png" class="step-img" alt="hand drill for surgery" />
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-img-box">
+      <img src="https://i.ibb.co/dJMhB8Y/section-2-huge.png" class="step-img" alt="medical equipments" />
+    </div>
+    <div class="step-text-box">
+      <p class="step-number">Products</p>
+      <p class="step-description">
+        Our product range includes Department of orthopedics instruments, bone plate screws, bone marrow needle,
+        steel wire, disposal platform, common instrument box, special
+        instrument box, etc.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
+
+https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80
 
 {% endblock %}
