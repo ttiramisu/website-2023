@@ -14,7 +14,7 @@ html {
 }
 
 .hero-img {
-  transition: linear 500ms;
+  transition: all 500ms;
 }
 
 .hero-img:hover {
