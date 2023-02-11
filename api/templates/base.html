@@ -19,36 +19,43 @@
 
   <!-- PERSONAL STYLESHEET -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/queries.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
   <!-- PERSONAL STYLESHEET -->
 
   <!-- PERSONAL JS -->
   <title>{% block title %} {% endblock %} - Silkroad</title>
 
 <body>
-  <header class="header">
-    <a href="{{ url_for('index') }} ">
-      <img class="logo" alt="logo" src="https://i.ibb.co/Zgzpzhf/logo.png" />
-    </a>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('index') }}">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" width="30" height="24"
+          class="d-inline-block align-text-top">
+        丝绸之路
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('index') }}">Link</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% block content %}
 
-    <nav class="main-nav">
-      <ul class="main-nav-list">
-        <li><a class="main-nav-link" href="{{ url_for('main') }}">All Products</a></li>
-        <li>
-          <div id="google_translate_element"></div>
-        </li>
-      </ul>
-    </nav>
-
-    <button class="btn-mobile-nav">
-      <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
-      <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
-    </button>
-  </header>
-    {% block content %}
-
-    {% endblock %}
+  {% endblock %}
+  <footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      Copyright © 2023 by Teamsilkroad. All rights reserved.
+    </div>
+    <!-- Copyright -->
+  </footer>
   <script src="{{ url_for('static', filename='js/script.js') }}" async></script>
 </body>
 
