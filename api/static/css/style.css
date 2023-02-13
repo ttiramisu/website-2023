@@ -20,3 +20,11 @@ main {
 .hero-img:hover {
   transform: translateY(-10px);
 }
+
+.card {
+  transition: all 500ms;
+}
+
+.card:hover{
+  transform: translateY(-10px);
+}
