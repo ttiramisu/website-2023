@@ -23,6 +23,7 @@ main {
 
 .card {
   transition: all 500ms;
+  cursor: pointer;
 }
 
 .card:hover{
