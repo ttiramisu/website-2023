@@ -31,5 +31,5 @@ main {
 }
 
 .bg-light-blue {
-  background-color: #edf7fe;
+  background-color: #edf7fe !important;
 }
