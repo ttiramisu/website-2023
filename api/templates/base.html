@@ -36,33 +36,9 @@
   <meta name="msapplication-TileImage" content="{{ url_for('static', filename='title/ms-icon-144x144.png') }}">
   <meta name="theme-color" content="#ffffff">
   <!-- IMAGES -->
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico.png') }}">
   <title>Silkroad</title>
 
 <body>
-  <!-- <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-      </a>
-      <a class="navbar-brand" href="{{ url_for('index') }}">
-        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" width="30" height="30"
-          class="d-inline-block align-text-top">
-        丝绸之路
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('main') }}">Link</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
-
   <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
     <div class="container">
       <a class="navbar-brand" href="#"></a>
@@ -72,16 +48,16 @@
         丝绸之路
       </a>
       <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('about') }}">关于我们</a>
-            </li>
-          </ul>
-        </div>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('about') }}">关于我们</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   <main>
