@@ -33,7 +33,7 @@ Copyright (C) 2023
 See also the list of [contributors](https://github.com/JIN-ZIJIE/website-2023/graphs/contributors) who participated in this project.
 
 ## license
-* MIT
+* GNU General Public License v3.0
 <br>
 <br>
 <hr>
@@ -62,12 +62,10 @@ Teamsilkroad，又名博览五千年，旨在让学生更深入地了解丝绸�
 另请参阅参与此项目的[贡献者](https://github.com/JIN-ZIJIE/website-2023/graphs/contributors)列表。
 
 ## 执照
-* MIT
+* GNU General Public License v3.0
 
 
 
 <!-- VARIABLES -->
 [Button Website]: https://img.shields.io/badge/Website-7D929E?style=for-the-badge&logoColor=white&logo=ApacheCouchDB
 [Website]: https://pw-silkroad.vercel.app
-
-<!-- [html] :https://img.shields.io/badge/-HTML-orange -->
