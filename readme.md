@@ -3,6 +3,16 @@
 # website 2023 teamsilkroad
 Teamsilkroad, aka 博览五千年, aim to provide students with a deeper insight into silk road. This website, built on the Bootstrap CSS framework, contains contribution of all group members.
 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
 ## about us
 We are a group of students from Singapore who are doing research on the silk road for our annual project work. We are glad that you dropped by to see our GitHub repo for our website
 
@@ -13,6 +23,7 @@ We are a group of students from Singapore who are doing research on the silk roa
 * [Vercel](https://vercel.com/) - Web Hosting Provider
 
 ## authors
+Copyright (C) 2023
 
 * **JJ Jin** - *Server side code with python* - [JJ Jin](https://github.com/JIN-ZIJIE)
 * **Salted-caramel** - *Wonderful html and css* - [Salted Caramel](https://github.com/salted-caramel)
