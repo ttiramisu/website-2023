@@ -33,3 +33,12 @@ main {
 .bg-light-blue {
   background-color: #edf7fe !important;
 }
+
+.footer-link:link,
+.footer-link:active,
+.footer-link:visited,
+.footer-link:hover {
+  color: #222;
+  text-decoration: none;
+  cursor: pointer;
+}
