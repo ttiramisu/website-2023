@@ -65,15 +65,15 @@
 
     {% endblock %}
   </main>
-  <footer class="bg-light text-center text-lg-start">
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(219, 219, 219, 0.2);">
-      <a href="{{ url_for('policy') }}">
+  <a href="{{ url_for('policy') }}">
+    <footer class="bg-light text-center text-lg-start">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(219, 219, 219, 0.2);">
         Copyright © <span class="year">2023</span> by Teamsilkroad. All rights reserved.
-      </a>
-    </div>
-    <!-- Copyright -->
-  </footer>
+      </div>
+      <!-- Copyright -->
+    </footer>
+  </a>
 
   <!-- MAIN SCRIPTS -->
   <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" async></script>
