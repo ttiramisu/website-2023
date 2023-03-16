@@ -16,6 +16,10 @@ def index():
 def about():
     return render_template('about.html')
 
+@app.route('/policy')
+def policy():
+    return render_template('policy.html')
+
 ###############################
 ############ ERROR ############
 ###############################
