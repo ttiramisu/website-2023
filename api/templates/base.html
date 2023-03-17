@@ -40,29 +40,31 @@
   <title>Silkroad</title>
 
 <body>
-  <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary" id="nav">
-    <div class="container">
-      <a class="navbar-brand" href="{{ url_for('index') }}">
-        <img src="{{ url_for('static', filename='img/logo.avif') }}" alt="..." width="30" height="30"
-          class="d-inline-block align-text-top">
-        丝绸之路
-      </a>
-      <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('about') }}">关于我们</a>
-          </li>
-        </ul>
+  <div class="sticky-top">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+          <img src="{{ url_for('static', filename='img/logo.avif') }}" alt="..." width="30" height="30"
+            class="d-inline-block align-text-top">
+          丝绸之路
+        </a>
+        <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}">关于我们</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="progress-container">
-        <div class="progress-bar" id="Bar"></div>
-      </div>
+    </nav>
+    <div class="progress-container">
+      <div class="progress-bar" id="Bar"></div>
     </div>
-  </nav>
+  </div>
 
   <main>
     {% block content %}
