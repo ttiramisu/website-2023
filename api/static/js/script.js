@@ -8,3 +8,13 @@ console.log(`%cUsing this console may allow attackers to impersonate you and ste
 const yearEl = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
 yearEl.textContent = currentYear;
+
+// When the user scrolls the page, execute myFunction 
+window.onscroll = function () { progress() };
+
+const progress = () => {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById("Bar").style.width = scrolled + "%";
+}
