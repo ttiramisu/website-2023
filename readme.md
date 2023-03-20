@@ -1,7 +1,7 @@
 [![Button Website]][Website]
 
 # website 2023 teamsilkroad
-Teamsilkroad, aka 博览五千年, aim to provide students with a deeper insight into silk road. This website, built on the Bootstrap CSS framework, contains contribution of all group members.
+Teamsilkroad, aka 博览五千年, aim to provide students with a deeper insight into silk road. This website, built on the Bootstrap CSS/JaveScript framework, contains contribution of all group members.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@ See also the list of [contributors](https://github.com/JIN-ZIJIE/website-2023/gr
 <br>
 
 # 网站-2023 teamsilkroad
-Teamsilkroad，又名博览五千年，旨在让学生更深入地了解丝绸之路。本网站建立在Bootstrap CSS框架之上，汇集了所有小组成员的贡献。
+Teamsilkroad，又名博览五千年，旨在让学生更深入地了解丝绸之路。本网站建立在Bootstrap CSS/JavaScript 框架之上，汇集了所有小组成员的贡献。
 
 ## 关于我们
 我们是一群来自新加坡的学生，正在为我们的年度专题作业对丝绸之路进行研究。我们很高兴您来看我们网站的 GitHub 代码存储库
