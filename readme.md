@@ -1,7 +1,7 @@
 [![Button Website]][Website]
 
 # website 2023 teamsilkroad
-Teamsilkroad, aka 博览五千年, aim to provide students with a deeper insight into silk road. This website, built on the Bootstrap CSS/JaveScript framework, contains contribution of all group members.
+Teamsilkroad, aka 博览五千年, aim to provide students with a deeper insight into silk road. This website, built on the Bootstrap CSS/JavaScript framework, contains contribution of all group members.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
