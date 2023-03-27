@@ -9,7 +9,9 @@ const yearEl = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
 yearEl.textContent = currentYear;
 
-window.onscroll = function () { progress() };
+window.onscroll = function () {
+  progress()
+};
 
 const progress = () => {
   const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
