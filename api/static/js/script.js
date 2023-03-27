@@ -9,7 +9,6 @@ const yearEl = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
 yearEl.textContent = currentYear;
 
-// When the user scrolls the page, execute myFunction 
 window.onscroll = function () { progress() };
 
 const progress = () => {
