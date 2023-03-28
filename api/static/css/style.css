@@ -40,6 +40,10 @@
   cursor: pointer;
 }
 
+.link-none {
+  cursor: not-allowed;
+}
+
 .progress-container {
   width: 100%;
   height: 4px;
