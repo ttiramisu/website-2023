@@ -30,6 +30,12 @@
   background-color: #edf7fe !important;
 }
 
+.reduce-outerspace {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+/* UNINPORTANT STYLES */
 .footer-link:link,
 .footer-link:active,
 .footer-link:visited,
