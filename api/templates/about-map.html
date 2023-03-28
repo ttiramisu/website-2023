@@ -1,7 +1,266 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin="" async></script>
+<style>
+  #map {
+    height: 80vh;
+  }
+</style>
+<div id="map"></div>
+<script async>
+  var map = L.map("map").setView([35.8617, 104.1954], 5); // set the initial view to China during Tang Dynasty
 
-<h1>thing</h1>
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution:
+      '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  }).addTo(map);
+
+  // Add markers to represent key locations along the Silk Road during Tang Dynasty
+  var markers = [
+    {
+      lat: 34.3416,
+      lng: 108.9398,
+      name: "长安/西安",
+      desc: "唐朝首都；丝绸之路的东方起点",
+    },
+    {
+      lat: 36.0338,
+      lng: 103.4936,
+      name: "兰州",
+      desc: "",
+    },
+    {
+      lat: 37.9342,
+      lng: 102.638,
+      name: "武威",
+      desc: "",
+    },
+    {
+      lat: 39.5,
+      lng: 97.34,
+      name: "瓜州（安西）",
+      desc: "",
+    },
+    {
+      lat: 40.1421,
+      lng: 94.662,
+      name: "敦煌",
+      desc: "重要的丝绸和茶叶贸易中心",
+    },
+    {
+      lat: 40.3139,
+      lng: 89.5026,
+      name: "楼兰",
+      desc: "",
+    },
+    {
+      lat: 39.1403,
+      lng: 88.5622,
+      name: "米兰",
+      desc: "",
+    },
+    {
+      lat: 38.0241,
+      lng: 82.7376,
+      name: "尼雅",
+      desc: "",
+    },
+    {
+      lat: 37.06,
+      lng: 80.01,
+      name: "和田",
+      desc: "",
+    },
+    {
+      lat: 38.2327,
+      lng: 77.1324,
+      name: "莎车县",
+      desc: "",
+    },
+    {
+      lat: 42.4909,
+      lng: 93.3054,
+      name: "哈密市",
+      desc: "",
+    },
+    {
+      lat: 42.9429,
+      lng: 89.1899,
+      name: "吐鲁番",
+      desc: "重要商业中心，负责连接东方和中亚地区的贸易",
+    },
+    {
+      lat: 41.6499,
+      lng: 83.8999,
+      name: "龟兹",
+      desc: "",
+    },
+    {
+      lat: 41.1106,
+      lng: 80.1725,
+      name: "阿克苏市",
+      desc: "",
+    },
+    {
+      lat: 39.4677,
+      lng: 75.9898,
+      name: "喀什",
+      desc: "中亚商路上的重要城市",
+    },
+    {
+      lat: 37.4622,
+      lng: 75.1328,
+      name: "塔什库尔干镇",
+      desc: "",
+    },
+    {
+      lat: 43.5429,
+      lng: 81.164,
+      name: "伊宁",
+      desc: "",
+    },
+    {
+      lat: 41.184,
+      lng: 69.1647,
+      name: "塔什干",
+      desc: "",
+    },
+    {
+      lat: 40.3143,
+      lng: 70.5633,
+      name: "浩罕",
+      desc: "",
+    },
+    {
+      lat: 36.2048,
+      lng: 59.6349,
+      name: "撒马尔罕",
+      desc: "在波斯湾和中亚地区的商业中",
+    },
+    // {
+    //   lat: 39.775,
+    //   lng: 64.4253,
+    //   name: "布哈拉",
+    //   desc: "伊斯兰文化和贸易的中心",
+    // },
+    // {
+    //   lat: 33.3128,
+    //   lng: 44.3615,
+    //   name: "巴格达",
+    //   desc: "阿拔斯王朝的都城；伊斯兰文化和贸易的中心",
+    // },
+    // {
+    //   lat: 33.5138,
+    //   lng: 36.2765,
+    //   name: "大马士革",
+    //   desc: "古代城市，曾是罗马帝国东方属省的首府",
+    // },
+    // {
+    //   lat: 31.7683,
+    //   lng: 35.2137,
+    //   name: "耶路撒冷",
+    //   desc: "宗教文化交汇点",
+    // },
+    // {
+    //   lat: 41.0082,
+    //   lng: 28.9784,
+    //   name: "君士坦丁堡（伊斯坦布尔）",
+    //   desc: "拜占庭帝国的都城；连接欧洲和亚洲的重要城市",
+    // },
+    //
+  ];
+
+  // Add markers to the map
+  for (let i = 0; i < markers.length; i++) {
+    L.marker([markers[i].lat, markers[i].lng])
+      .bindPopup("<b>" + markers[i].name + "</b><br>" + markers[i].desc)
+      .addTo(map);
+  }
+
+  // Define an array of coordinates for the polyline
+  let path1 = [
+    { lat: 34.3416, lng: 108.9398 },
+    { lat: 36.0338, lng: 103.4936 },
+    { lat: 37.9342, lng: 102.638 },
+    { lat: 39.5, lng: 97.34 },
+    { lat: 40.1421, lng: 94.662 },
+    { lat: 40.3139, lng: 89.5026 },
+    { lat: 39.1403, lng: 88.5622 },
+    { lat: 38.0241, lng: 82.7376 },
+    { lat: 37.06, lng: 80.01 },
+    { lat: 38.2327, lng: 77.1324 },
+    { lat: 37.4622, lng: 75.1328 },
+  ];
+
+  // Define options for the polyline
+  let path1Options = {
+    color: "red",
+    weight: 3,
+    opacity: 0.7,
+  };
+
+  // Add the polyline to the map
+  let polyline1 = L.polyline(path1, path1Options).addTo(map);
+
+  let path1a = [
+    { lat: 38.2327, lng: 77.1324 },
+    { lat: 39.4677, lng: 75.9898 },
+  ];
+
+  let polyline1a = L.polyline(path1a, path1Options).addTo(map);
+
+  let path2 = [
+    { lat: 39.5, lng: 97.34 },
+    { lat: 42.4909, lng: 93.3054 },
+    { lat: 42.9249, lng: 89.1899 },
+    { lat: 41.6499, lng: 83.8999 },
+    { lat: 41.1106, lng: 80.1725 },
+    { lat: 38.2327, lng: 77.1324 },
+  ];
+
+  let path2Options = {
+    color: "blue",
+    weight: 3,
+    opacity: 0.7,
+  };
+
+  let polyline2 = L.polyline(path2, path2Options).addTo(map);
+
+  let path2a = [
+    { lat: 41.1106, lng: 80.1725 },
+    { lat: 39.4677, lng: 75.9898 },
+  ];
+
+  let polyline2a = L.polyline(path2a, path2Options).addTo(map);
+
+  let path3 = [
+    { lat: 42.9249, lng: 89.1899 },
+    { lat: 43.5429, lng: 81.164 },
+    { lat: 41.184, lng: 69.1647 },
+    { lat: 40.3143, lng: 70.5633 },
+    { lat: 36.2048, lng: 59.6349 },
+  ];
+
+  let path3Options = {
+    color: "green",
+    weight: 3,
+    opacity: 0.7,
+  };
+
+  let polyline3 = L.polyline(path3, path3Options).addTo(map);
+
+  let path3a = [
+    { lat: 40.3143, lng: 70.5633 },
+    { lat: 39.4677, lng: 75.9898 },
+  ];
+
+  let polyline3a = L.polyline(path3a, path3Options).addTo(map);
+</script>
 
 {% endblock %}
