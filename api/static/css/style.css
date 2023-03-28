@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 
-.link-none:hover {
+.not-allowed {
   cursor: not-allowed;
 }
 
