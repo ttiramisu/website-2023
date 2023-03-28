@@ -30,6 +30,10 @@
   background-color: #edf7fe !important;
 }
 
+.fixed-width {
+  width: 10rem;
+}
+
 .reduce-outerspace {
   margin-left: 5rem;
   margin-right: 5rem;
