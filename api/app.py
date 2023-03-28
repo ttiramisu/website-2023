@@ -12,7 +12,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/about')
+@app.route('/about-us')
 def about():
     return render_template('about.html')
 
@@ -20,15 +20,15 @@ def about():
 def policy():
     return render_template('policy.html')
 
-@app.route('/silkroad/about')
+@app.route('/about/silkroad')
 def silkroad_about():
     return render_template('about-silkroad.html')
 
-@app.route('/silkroad/development')
+@app.route('/about/development')
 def silkroad_development():
     return render_template('about-development.html') 
 
-@app.route('/silkroad/map')
+@app.route('/about/map')
 def silkroad_map():
     return render_template('about-map.html') 
 
