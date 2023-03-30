@@ -31,6 +31,10 @@ def silkroad_development():
 @app.route('/about/map')
 def silkroad_map():
     return render_template('about-map.html') 
+    
+@app.route('/about/belt-road')
+def belt_road():
+    return render_template('about-belt-road.html')
 
 ###############################
 ############ ERROR ############
