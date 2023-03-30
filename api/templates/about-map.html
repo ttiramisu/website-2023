@@ -1,22 +1,16 @@
 {% extends 'base.html' %} {% block content %}
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-  crossorigin=""
-/>
-<!-- Make sure you put this AFTER Leaflet's CSS -->
-<script
-  src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-  crossorigin=""
-></script>
-<style>
-    #map {
-      height: 100vh;
-    }
 
-    /* @media only screen and (max-width: 767px) {
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<style>
+  #map {
+    height: 100vh;
+  }
+
+  /* @media only screen and (max-width: 767px) {
       body {
         padding: 0;
         margin: 0;
@@ -30,6 +24,9 @@
 <div id="map"></div>
 <script>
   var map = L.map("map").setView([35.8617, 104.1954], 5); // set the initial view to China during Tang Dynasty
+
+  map.options.minZoom = 5;
+  map.options.maxZoom = 10;
 
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18,
@@ -278,5 +275,7 @@
 
   let polyline3a = L.polyline(path3a, path3Options).addTo(map);
 </script>
+
+{% endblock %}
 
 {% endblock %}
