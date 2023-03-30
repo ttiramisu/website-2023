@@ -33,7 +33,7 @@ def silkroad_map():
     return render_template('about-map.html') 
     
 @app.route('/about/belt-road')
-def belt_road():
+def silkroad_belt_road():
     return render_template('about-belt-road.html')
 
 ###############################
