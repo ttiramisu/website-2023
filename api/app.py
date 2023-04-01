@@ -37,7 +37,7 @@ def silkroad_belt_road():
     return render_template('about-belt-road.html')
 
 @app.route('/about/coming-soon')
-def comming_soon():
+def coming_soon():
     return render_template('coming-soon.html')
 
 ###############################
