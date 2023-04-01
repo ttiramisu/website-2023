@@ -11,7 +11,6 @@ app = Flask(__name__, static_folder='static', static_url_path='')
 def index():
     return render_template('index.html')
 
-
 @app.route('/about-us')
 def about():
     return render_template('about.html')
@@ -52,6 +51,14 @@ def page_not_found(e):
 @app.errorhandler(500)
 def page_not_found(e):
 	return render_template("500.html"), 500
+
+@app.route('/404')
+def error_404():
+    return render_template('404.html')
+
+@app.route('/500')
+def error_500():
+    return render_template('500.html')
 
 
 ###############################
