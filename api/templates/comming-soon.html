@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+  <source src="{{ url_for('static', filename='img/bg.mp4') }}" type="video/mp4" />
+</video>
+<!-- Masthead-->
+<div class="masthead">
+  <div class="masthead-content text-white">
+    <div class="container-fluid px-4 px-lg-0">
+      <h1 class="lh-1 mb-4">Comming Soon!</h1>
+      <p class="mb-5">We're working hard to finish the development of this site.</p>
+    </div>
+  </div>
+</div>
+<!-- Social Icons-->
+<!-- For more icon options, visit https://fontawesome.com/icons?d=gallery&p=2&s=brands-->
+<div class="social-icons">
+  <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
+    <a class="btn btn-dark m-3" href="#!"><i class="fab fa-instagram"></i></a>
+  </div>
+</div>
+
+{% endblock %}
