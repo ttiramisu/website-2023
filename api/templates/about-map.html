@@ -42,30 +42,40 @@
       lng: 108.9398,
       name: "长安/西安",
       desc: "唐朝首都；丝绸之路的东方起点",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 36.0338,
       lng: 103.4936,
       name: "兰州",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 37.9342,
       lng: 102.638,
       name: "武威",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 39.5,
       lng: 97.34,
       name: "瓜州（安西）",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 40.1421,
       lng: 94.662,
       name: "敦煌",
       desc: "重要的丝绸和茶叶贸易中心",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 40.3139,
@@ -80,84 +90,112 @@
       lng: 88.5622,
       name: "米兰",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 38.0241,
       lng: 82.7376,
       name: "尼雅",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 37.06,
       lng: 80.01,
       name: "和田",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 38.2327,
       lng: 77.1324,
       name: "莎车县",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 42.4909,
       lng: 93.3054,
       name: "哈密市",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 42.9429,
       lng: 89.1899,
       name: "吐鲁番",
       desc: "重要商业中心，负责连接东方和中亚地区的贸易",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 41.6499,
       lng: 83.8999,
       name: "龟兹",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 41.1106,
       lng: 80.1725,
       name: "阿克苏市",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 39.4677,
       lng: 75.9898,
       name: "喀什",
       desc: "中亚商路上的重要城市",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 37.4622,
       lng: 75.1328,
       name: "塔什库尔干镇",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 43.5429,
       lng: 81.164,
       name: "伊宁",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 41.184,
       lng: 69.1647,
       name: "塔什干",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 40.3143,
       lng: 70.5633,
       name: "浩罕",
       desc: "",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     {
       lat: 36.2048,
       lng: 59.6349,
       name: "撒马尔罕",
       desc: "在波斯湾和中亚地区的商业中",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
     },
     // {
     //   lat: 39.775,
@@ -194,13 +232,13 @@
 
   // Add markers to the map
   for (let i = 0; i < markers.length; i++) {
-      const marker = markers[i];
-      const link = '<a href="' + marker.url + '" target="_blank">' + marker.linkText + '</a>'; // add target attribute to link
-      const popupContent = "<b>" + marker.name + "</b><br>" + marker.desc + "<br>" + link; // add link to popup content
-      L.marker([marker.lat, marker.lng])
-        .bindPopup(popupContent)
-        .addTo(map);
-    }
+    const marker = markers[i];
+    const link = '<a href="' + marker.url + '" target="_blank">' + marker.linkText + '</a>'; // add target attribute to link
+    const popupContent = "<b>" + marker.name + "</b><br>" + marker.desc + "<br>" + link; // add link to popup content
+    L.marker([marker.lat, marker.lng])
+      .bindPopup(popupContent)
+      .addTo(map);
+  }
 
   // Define an array of coordinates for the polyline
   let path1 = [
