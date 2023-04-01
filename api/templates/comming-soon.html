@@ -1,26 +1,72 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-  <source src="{{ url_for('static', filename='img/bg.mp4') }}" type="video/mp4" />
-</video>
-<!-- Masthead-->
-<div class="masthead">
-  <div class="masthead-content text-white">
-    <div class="container-fluid px-4 px-lg-0">
-      <h1 class="lh-1 mb-4">Comming Soon!</h1>
-      <p class="mb-5">We're working hard to finish the development of this site.</p>
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font.css') }}">
+  <!-- STYLESHEET -->
+
+  <!-- ICON ON TAB -->
+  <link rel="apple-touch-icon" sizes="57x57" href="{{ url_for('static', filename='title/apple-icon-57x57.png') }}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{ url_for('static', filename='title/apple-icon-60x60.png') }}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ url_for('static', filename='title/apple-icon-72x72.png') }}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static', filename='title/apple-icon-76x76.png') }}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ url_for('static', filename='title/apple-icon-114x114.png') }}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ url_for('static', filename='title/apple-icon-120x120.png') }}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ url_for('static', filename='title/apple-icon-144x144.png') }}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ url_for('static', filename='title/apple-icon-152x152.png') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='title/apple-icon-180x180.png') }}">
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="{{ url_for('static', filename='title/android-icon-192x192.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='title/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='title/favicon-96x96.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='title/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='title/manifest.json') }}">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="{{ url_for('static', filename='title/ms-icon-144x144.png') }}">
+  <meta name="theme-color" content="#ffffff">
+  <!-- ICON ON TAB -->
+
+  <!-- META CONTENT -->
+  <meta name="description"
+    content="Pw-silkroad. Teamsilkroad aims to allow students to understand more about the silkroad through board games.">
+  <!-- META CONTENT -->
+  <title>Silkroad</title>
+</head>
+
+<body>
+  <!-- Background Video-->
+  <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="assets/mp4/bg.mp4" type="video/mp4" />
+  </video>
+  <!-- Masthead-->
+  <div class="masthead">
+    <div class="masthead-content text-white">
+      <div class="container-fluid px-4 px-lg-0">
+        <h1 class="lh-1 mb-4">Comming Soon!</h1>
+        <p class="mb-5">We're working hard to finish the development of this site.</p>
+      </div>
     </div>
   </div>
-</div>
-<!-- Social Icons-->
-<!-- For more icon options, visit https://fontawesome.com/icons?d=gallery&p=2&s=brands-->
-<div class="social-icons">
-  <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
-    <a class="btn btn-dark m-3" href="#!"><i class="fab fa-instagram"></i></a>
+  <!-- Social Icons-->
+  <div class="social-icons">
+    <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
+      <a class="btn btn-dark m-3" href="#!"><i class="fab fa-instagram"></i></a>
+    </div>
   </div>
-</div>
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
-{% endblock %}
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  
+  <!-- MAIN SCRIPTS -->
+  <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}" async></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}" async></script>
+  <!-- MAIN SCRIPTS -->
+</body>
+
+</html>
