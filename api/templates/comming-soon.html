@@ -43,7 +43,7 @@
 <body>
   <!-- Background Video-->
   <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-    <source src="assets/mp4/bg.mp4" type="video/mp4" />
+    <source src="{{ url_for('static', filename='img/bg.mp4') }}" type="video/mp4" />
   </video>
   <!-- Masthead-->
   <div class="masthead">
@@ -62,7 +62,7 @@
   </div>
 
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-  
+
   <!-- MAIN SCRIPTS -->
   <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}" async></script>
   <script src="{{ url_for('static', filename='js/script.js') }}" async></script>
