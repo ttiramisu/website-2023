@@ -1,11 +1,11 @@
-.btn {
+.btn-main {
   background-color: #4dabf7 !important;
   color: #222 !important;
   transform: all 500ms;
 }
 
-.btn:hover,
-.btn:active {
+.btn-main:hover,
+.btn-main:active {
   background-color: #94cdfa !important;
 }
 
@@ -58,9 +58,4 @@
 
 aside {
   display: inline-block !important;
-}
-
-.hkr {
-  display: flex;
-  flex-direction: row;
 }
