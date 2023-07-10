@@ -55,3 +55,7 @@
   background: #4dabf7;
   width: 0%;
 }
+
+aside {
+  display: inline-block;
+}
