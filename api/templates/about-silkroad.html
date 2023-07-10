@@ -81,55 +81,53 @@
 </style>
 
 <main class="d-flex flex-nowrap">
-  <aside>
-    <div class="flex-shrink-0 p-3" style="width: 280px;">
-      <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-        <svg class="bi pe-none me-2" width="30" height="24">
-          <use xlink:href="#bootstrap" />
-        </svg>
-        <span class="fs-5 fw-semibold">丝绸之路</span>
-      </a>
-      <ul class="list-unstyled ps-0">
-        <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-            data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-            丝绸之路简介
-          </button>
-          <div class="collapse show" id="home-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">丝绸之路的三个部分</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">远古时期的丝绸之路</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-            data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-            最初的发展
-          </button>
-          <div class="collapse" id="dashboard-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">中国</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">中亚</a></li>
-              <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">中东</a></li>
-            </ul>
-          </div>
-        </li>
-        <li class="mb-1">
-          <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
-            data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-            公元前一世纪到七世纪
-          </button>
-          <div class="collapse" id="orders-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="#"
-                  class="link-body-emphasis d-inline-flex text-decoration-none rounded">张骞的西行（丝绸之路如何帮助中国发展)</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </aside>
+  <div class="flex-shrink-0 p-3" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
+      <svg class="bi pe-none me-2" width="30" height="24">
+        <use xlink:href="#bootstrap" />
+      </svg>
+      <span class="fs-5 fw-semibold">丝绸之路</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <button class="btn d-inline-flex align-items-center rounded border-0 collapsed btn-toggle"
+          data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+          丝绸之路简介
+        </button>
+        <div class="collapse show" id="home-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">丝绸之路的三个部分</a></li>
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">远古时期的丝绸之路</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn d-inline-flex align-items-center rounded border-0 collapsed btn-toggle"
+          data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          最初的发展
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">中国</a></li>
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">中亚</a></li>
+            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">中东</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn d-inline-flex align-items-center rounded border-0 collapsed btn-toggle"
+          data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+          公元前一世纪到七世纪
+        </button>
+        <div class="collapse" id="orders-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#"
+                class="link-body-emphasis d-inline-flex text-decoration-none rounded">张骞的西行（丝绸之路如何帮助中国发展)</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
 </main>
 
 {% endblock %}
