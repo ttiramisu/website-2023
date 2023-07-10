@@ -63,3 +63,8 @@ aside {
 .fuck-u {
   display: inline-block !important;
 }
+
+.hkr {
+  display: flex;
+  flex-direction: row;
+}
