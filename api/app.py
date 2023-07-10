@@ -19,19 +19,19 @@ def about():
 def policy():
     return render_template('policy.html')
 
-@app.route('/about/silkroad')
+@app.route('/silkroad-about')
 def silkroad_about():
     return render_template('about-silkroad.html')
 
-@app.route('/about/development')
+@app.route('/silkroad-development')
 def silkroad_development():
     return render_template('about-development.html') 
 
-@app.route('/about/map')
+@app.route('/silkroad-map')
 def silkroad_map():
     return render_template('about-map.html') 
     
-@app.route('/about/belt-road')
+@app.route('/silkroad-belt-road')
 def silkroad_belt_road():
     return render_template('about-belt-road.html')
 
