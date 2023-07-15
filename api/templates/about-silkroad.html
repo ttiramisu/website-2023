@@ -3,234 +3,280 @@
 {% block content %}
 
 <style>
-  @media screen and (min-width: 576px) {
-    main {
-    width: 80%;
-    margin: auto;
-    }
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: #fafafa;
   }
 
-  @media screen and (max-width: 576px) {
-    .sidebar {
+  p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+  }
+
+  a,
+  a:hover,
+  a:focus {
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+  }
+
+  .line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+  }
+
+
+  /* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+  .wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+
+  #sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+  }
+
+  #sidebar a,
+  #sidebar a:hover,
+  #sidebar a:focus {
+    color: inherit;
+  }
+
+  #sidebar.active {
+    margin-left: -250px;
+  }
+
+  #sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+  }
+
+  #sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+  }
+
+  #sidebar ul p {
+    color: #fff;
+    padding: 10px;
+  }
+
+  #sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+  }
+
+  #sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+  }
+
+  #sidebar ul li.active>a,
+  a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+  }
+
+  a[data-toggle="collapse"] {
+    position: relative;
+  }
+
+  a[aria-expanded="false"]::before,
+  a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
+  }
+
+  a[aria-expanded="true"]::before {
+    content: '\e260';
+  }
+
+  ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+  }
+
+  ul.CTAs {
+    padding: 20px;
+  }
+
+  ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+
+  a.download {
+    background: #fff;
+    color: #7386D5;
+  }
+
+  a.article,
+  a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+  }
+
+
+  /* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+  #content {
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+  }
+
+  #content p a {
+    /* color: */
+  }
+
+
+  /* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+  @media (max-width: 768px) {
+    #sidebar {
+      margin-left: -250px;
+    }
+
+    #sidebar.active {
+      margin-left: 0;
+    }
+
+    #sidebarCollapse span {
       display: none;
     }
-
-    main {
-      width: 90%;
-      margin: auto;
-    }
-  }
-
-  .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
-
-  .b-example-divider {
-    width: 100%;
-    height: 3rem;
-    background-color: rgba(0, 0, 0, .1);
-    border: solid rgba(0, 0, 0, .15);
-    border-width: 1px 0;
-    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-  }
-
-  .b-example-vr {
-    flex-shrink: 0;
-    width: 1.5rem;
-    height: 100vh;
-  }
-
-  .bi {
-    vertical-align: -.125em;
-    fill: currentColor;
-  }
-
-  .nav-scroller {
-    position: relative;
-    z-index: 2;
-    height: 2.75rem;
-    overflow-y: hidden;
-  }
-
-  .nav-scroller .nav {
-    display: flex;
-    flex-wrap: nowrap;
-    padding-bottom: 1rem;
-    margin-top: -1px;
-    overflow-x: auto;
-    text-align: center;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .btn-bd-primary {
-    --bd-violet-bg: #712cf9;
-    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-    --bs-btn-font-weight: 600;
-    --bs-btn-color: var(--bs-white);
-    --bs-btn-bg: var(--bd-violet-bg);
-    --bs-btn-border-color: var(--bd-violet-bg);
-    --bs-btn-hover-color: var(--bs-white);
-    --bs-btn-hover-bg: #6528e0;
-    --bs-btn-hover-border-color: #6528e0;
-    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-    --bs-btn-active-color: var(--bs-btn-hover-color);
-    --bs-btn-active-bg: #5a23c8;
-    --bs-btn-active-border-color: #5a23c8;
-  }
-
-  .bd-mode-toggle {
-    z-index: 1500;
-  }
-
-  body {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-  }
-
-  html {
-    height: -webkit-fill-available;
-  }
-
-  .main {
-    /* height: 100vh; */
-    height: -webkit-fill-available;
-    /* max-height: 100vh; */
-    overflow-x: scroll;
-  }
-
-  main {
-    height: 100vh;
-  }
-
-  .dropdown-toggle {
-    outline: 0;
-  }
-
-  .btn-toggle {
-    padding: .25rem .5rem;
-    font-weight: 600;
-    color: var(--bs-emphasis-color);
-    background-color: transparent;
-  }
-
-  .btn-toggle:hover,
-  .btn-toggle:focus {
-    color: rgba(var(--bs-emphasis-color-rgb), .85);
-    background-color: var(--bs-tertiary-bg);
-  }
-
-  .btn-toggle::before {
-    width: 1.25em;
-    line-height: 0;
-    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-    transition: transform .35s ease;
-    transform-origin: .5em 50%;
-  }
-
-  [data-bs-theme="dark"] .btn-toggle::before {
-    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%28255,255,255,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-  }
-
-  .btn-toggle[aria-expanded="true"] {
-    color: rgba(var(--bs-emphasis-color-rgb), .85);
-  }
-
-  .btn-toggle[aria-expanded="true"]::before {
-    transform: rotate(90deg);
-  }
-
-  .btn-toggle-nav a {
-    padding: .1875rem .5rem;
-    margin-top: .125rem;
-    margin-left: 1.25rem;
-  }
-
-  .btn-toggle-nav a:hover,
-  .btn-toggle-nav a:focus {
-    background-color: var(--bs-tertiary-bg);
-  }
-
-  .main-content {
-    display: flex;
-    flex-direction: column;
-    /* overflow-y: none; */
   }
 </style>
 
-<main class="d-flex flex-nowrap main">
-  <div class="flex-shrink-0 p-3 sidebar" style="width: 280px; height: 100vh; overflow: hidden">
-    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-      <svg class="bi pe-none me-2" width="30" height="24">
-        <use xlink:href="#bootstrap" />
-      </svg>
-      <span class="fs-5 fw-semibold">丝绸之路</span>
-    </a>
-    <ul class="list-unstyled ps-0">
-      <li class="mb-1">
-        <button class="btn d-inline-flex align-items-center rounded border-0 collapsed btn-toggle"
-          data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-          丝绸之路简介
-        </button>
-        <div class="collapse show" id="home-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a onclick="scrollToSection('#1.2')" class="link-body-emphasis d-inline-flex text-decoration-none rounded">丝绸之路的三个部分</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">远古时期的丝绸之路</a></li>
-          </ul>
-        </div>
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>Bootstrap Sidebar</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <p>Dummy Heading</p>
+      <li class="active">
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li><a href="#">Home 1</a></li>
+          <li><a href="#">Home 2</a></li>
+          <li><a href="#">Home 3</a></li>
+        </ul>
       </li>
-      <li class="mb-1">
-        <button class="btn d-inline-flex align-items-center rounded border-0 collapsed btn-toggle"
-          data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          最初的发展
-        </button>
-        <div class="collapse" id="dashboard-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">中国</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">中亚</a></li>
-            <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">中东</a></li>
-          </ul>
-        </div>
+      <li>
+        <a href="#">About</a>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li><a href="#">Page 1</a></li>
+          <li><a href="#">Page 2</a></li>
+          <li><a href="#">Page 3</a></li>
+        </ul>
       </li>
-      <li class="mb-1">
-        <button class="btn d-inline-flex align-items-center rounded border-0 collapsed btn-toggle"
-          data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-          公元前一世纪到七世纪
-        </button>
-        <div class="collapse" id="orders-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#"
-                class="link-body-emphasis d-inline-flex text-decoration-none rounded">张骞的西行（丝绸之路如何帮助中国发展)</a></li>
-          </ul>
-        </div>
+      <li>
+        <a href="#">Portfolio</a>
+      </li>
+      <li>
+        <a href="#">Contact</a>
       </li>
     </ul>
-  </div>
 
-  <div class="main-content">
-    <div>
-      <p class="text-muted lead"style="margin-top: 2rem;"><strong><u>丝绸之路的简介</u></strong></p>
-      <p class="text-muted lead">
-        丝绸之路也简称为丝路，这词最早来自于德国地理学家费迪南·冯·李希霍芬男爵于1877年出版的一套五卷本的地图集。丝绸之路从长安或洛阳出发，经过甘肃、新疆，到中亚、西亚、欧洲，并联结地中海各国的陆上通道。丝绸之路有大概六千四百公里长，也在促进东西方之间的经济、文化、政治和宗教互动方面发挥着核心作用。
-        这样的通信与贸易之路在欧亚大陆上纵横交错，在历史上逐渐形成了我们今天所称的丝绸之路。丝绸之路覆盖着路上和海上交通，来自各个地方的人们在此沿线进行着丝绸与其他商品的交易。最初丝绸之路是西汉时张骞出使西域开辟的以长安为起点，最远到达西亚诸国的陆上贸易通道，到东汉时班超再次出使西域打通了荒废已久的丝绸之路，并将路线东端延伸到东汉京师洛阳，西端延伸到欧洲(罗马)，这是目前完整的丝绸之路路线。
-        2014年6月22日，在杜哈举行的第38届的世界遗产委员会会议上，丝绸之路同京杭大运河一起，被联合国教科文组织列为世界遗产。
-      </p>
-    </div>
-    <div id="1.2">
-      <p class="lead"><strong><u>丝绸之路的三个部位</u></strong></p>
-      <p class="lead">丝绸之路一般可分为三段，而每一段又都可分为北中南三条线路。东段并会从长安到达玉门关，阳关。中段并从 从玉门关、阳关以西至葱岭。最后，西段又从从葱岭往西经过中亚、西亚直到欧洲。</p>
-    </div>
+    <ul class="list-unstyled CTAs">
+      <li><a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to the article</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+    <h2>Collapsible Sidebar Using Bootstrap 3</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div class="line"></div>
+
+    <h2>Lorem Ipsum Dolor</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div class="line"></div>
+
+    <h2>Lorem Ipsum Dolor</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div class="line"></div>
+
+    <h3>Lorem Ipsum Dolor</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
-</main>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $("#sidebarCollapse").on("click", function () {
+      $("#sidebar").toggleClass("active");
+      $(this).toggleClass("active");
+    });
+  });
+
+</script>
 
 {% endblock %}
