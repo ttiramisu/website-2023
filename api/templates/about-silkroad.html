@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <style>
   body {
     font-family: 'Noto Sans SC', sans-serif;
@@ -8,7 +11,7 @@
   }
 
   p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Noto Sans SC', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
@@ -18,16 +21,9 @@
   a,
   a:hover,
   a:focus {
+    color: inherit;
     text-decoration: none;
     transition: all 0.3s;
-  }
-
-  .navbar {
-    padding: 15px 10px;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   }
 
   .navbar-btn {
@@ -43,28 +39,22 @@
     margin: 40px 0;
   }
 
-
-  /* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
-
-  .wrapper {
-    display: flex;
-    align-items: stretch;
+  .fixed-pos {
+    position: fixed;
+    top: 20px;
+    right: 20px;
   }
 
   #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    background: #7386D5;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #4dabf7;
     color: #fff;
     transition: all 0.3s;
-  }
-
-  #sidebar a,
-  #sidebar a:hover,
-  #sidebar a:focus {
-    color: inherit;
   }
 
   #sidebar.active {
@@ -73,12 +63,12 @@
 
   #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #4dafff;
   }
 
   #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    border-bottom: 1px dotted #47748b;
   }
 
   #sidebar ul p {
@@ -93,15 +83,16 @@
   }
 
   #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #4dabf7;
     background: #fff;
   }
 
   #sidebar ul li.active>a,
   a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #4dabf7;
   }
+
 
   a[data-toggle="collapse"] {
     position: relative;
@@ -124,51 +115,22 @@
   ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #57b6ff;
   }
-
-  ul.CTAs {
-    padding: 20px;
-  }
-
-  ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-  }
-
-  a.download {
-    background: #fff;
-    color: #7386D5;
-  }
-
-  a.article,
-  a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
-  }
-
-
-  /* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
 
   #content {
-    padding: 20px;
+    width: calc(100% - 250px);
+    padding: 40px;
     min-height: 100vh;
     transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 
-  #content p a {
-    /* color: */
+  #content.active {
+    width: 100%;
   }
-
-
-  /* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
 
   @media (max-width: 768px) {
     #sidebar {
@@ -177,6 +139,14 @@
 
     #sidebar.active {
       margin-left: 0;
+    }
+
+    #content {
+      width: 100%;
+    }
+
+    #content.active {
+      width: calc(100% - 250px);
     }
 
     #sidebarCollapse span {
@@ -193,7 +163,7 @@
     </div>
 
     <ul class="list-unstyled components">
-      <p>Dummy Heading</p>
+      <!-- <p>Dummy Heading</p> -->
       <li class="active">
         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -218,65 +188,79 @@
         <a href="#">Contact</a>
       </li>
     </ul>
-
-    <ul class="list-unstyled CTAs">
-      <li><a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to the article</a></li>
-    </ul>
   </nav>
 
   <!-- Page Content Holder -->
   <div id="content">
+
+    <div class="container-fluid fixed-pos">
+      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+        <i class="glyphicon glyphicon-align-left"></i>
+      </button>
+    </div>
+
     <h2>Collapsible Sidebar Using Bootstrap 3</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+      deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+      deserunt mollit anim id est laborum.</p>
 
     <div class="line"></div>
 
     <h2>Lorem Ipsum Dolor</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+      deserunt mollit anim id est laborum.</p>
 
     <div class="line"></div>
 
     <h2>Lorem Ipsum Dolor</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+      deserunt mollit anim id est laborum.</p>
 
     <div class="line"></div>
 
     <h3>Lorem Ipsum Dolor</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+      deserunt mollit anim id est laborum.</p>
   </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script>
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<!-- Bootstrap Js CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- jQuery Custom Scroller CDN -->
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<script type="text/javascript">
   $(document).ready(function () {
-    $("#sidebarCollapse").on("click", function () {
-      $("#sidebar").toggleClass("active");
-      $(this).toggleClass("active");
+    $("#sidebar").mCustomScrollbar({
+      theme: "minimal"
+    });
+
+    $('#sidebarCollapse').on('click', function () {
+      $('#sidebar, #content').toggleClass('active');
+      $('.collapse.in').toggleClass('in');
+      $('a[aria-expanded=true]').attr('aria-expanded', 'false');
     });
   });
-
 </script>
 
 {% endblock %}
