@@ -2,265 +2,63 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<style>
-  body {
-    font-family: 'Noto Sans SC', sans-serif;
-    background: #fafafa;
-  }
-
-  p {
-    font-family: 'Noto Sans SC', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-  }
-
-  a,
-  a:hover,
-  a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-
-  .navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
-  }
-
-  .line {
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px dashed #ddd;
-    margin: 40px 0;
-  }
-
-  .fixed-pos {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-  }
-
-  #sidebar {
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: 999;
-    background: #4dabf7;
-    color: #fff;
-    transition: all 0.3s;
-  }
-
-  #sidebar.active {
-    margin-left: -250px;
-  }
-
-  #sidebar .sidebar-header {
-    padding: 20px;
-    background: #4dafff;
-  }
-
-  #sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px dotted #47748b;
-  }
-
-  #sidebar ul p {
-    color: #fff;
-    padding: 10px;
-  }
-
-  #sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-  }
-
-  #sidebar ul li a:hover {
-    color: #4dabf7;
-    background: #fff;
-  }
-
-  #sidebar ul li.active>a,
-  a[aria-expanded="true"] {
-    color: #fff;
-    background: #4dabf7;
-  }
-
-
-  a[data-toggle="collapse"] {
-    position: relative;
-  }
-
-  a[aria-expanded="false"]::before,
-  a[aria-expanded="true"]::before {
-    content: '\e259';
-    display: block;
-    position: absolute;
-    right: 20px;
-    font-family: 'Glyphicons Halflings';
-    font-size: 0.6em;
-  }
-
-  a[aria-expanded="true"]::before {
-    content: '\e260';
-  }
-
-  ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #57b6ff;
-  }
-
-  #content {
-    width: calc(100% - 250px);
-    padding: 40px;
-    min-height: 100vh;
-    transition: all 0.3s;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-  #content.active {
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    #sidebar {
-      margin-left: -250px;
-    }
-
-    #sidebar.active {
-      margin-left: 0;
-    }
-
-    #content {
-      width: 100%;
-    }
-
-    #content.active {
-      width: calc(100% - 250px);
-    }
-
-    #sidebarCollapse span {
-      display: none;
-    }
-  }
-</style>
-
-<div class="wrapper">
-  <!-- Sidebar Holder -->
-  <nav id="sidebar">
-    <div class="sidebar-header">
-      <h3>Bootstrap Sidebar</h3>
-    </div>
-
-    <ul class="list-unstyled components">
-      <!-- <p>Dummy Heading</p> -->
-      <li class="active">
-        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
-        <ul class="collapse list-unstyled" id="homeSubmenu">
-          <li><a href="#">Home 1</a></li>
-          <li><a href="#">Home 2</a></li>
-          <li><a href="#">Home 3</a></li>
+<div class="offcanvas offcanvas-start w-25" tabindex="-1" id="offcanvas" data-bs-keyboard="false"
+  data-bs-backdrop="false">
+  <div class="offcanvas-header">
+    <h6 class="offcanvas-title d-none d-sm-block" id="offcanvas">Menu</h6>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body px-0">
+    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+      <li class="nav-item">
+        <a href="#" class="nav-link text-truncate">
+          <i class="fs-5 bi-house"></i><span class="ms-1 d-none d-sm-inline">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link text-truncate">
+          <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-truncate">
+          <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline">Orders</span></a>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="nav-link dropdown-toggle  text-truncate" id="dropdown" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="fs-5 bi-bootstrap"></i><span class="ms-1 d-none d-sm-inline">Bootstrap</span>
+        </a>
+        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdown">
+          <li><a class="dropdown-item" href="#">New project...</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
         </ul>
       </li>
       <li>
-        <a href="#">About</a>
-        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-        <ul class="collapse list-unstyled" id="pageSubmenu">
-          <li><a href="#">Page 1</a></li>
-          <li><a href="#">Page 2</a></li>
-          <li><a href="#">Page 3</a></li>
-        </ul>
+        <a href="#" class="nav-link text-truncate">
+          <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline">Products</span></a>
       </li>
       <li>
-        <a href="#">Portfolio</a>
-      </li>
-      <li>
-        <a href="#">Contact</a>
+        <a href="#" class="nav-link text-truncate">
+          <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Customers</span> </a>
       </li>
     </ul>
-  </nav>
-
-  <!-- Page Content Holder -->
-  <div id="content">
-
-    <div class="fixed-pos">
-      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-        <i class="glyphicon glyphicon-align-left"></i>
-      </button>
-    </div>
-
-    <h2>Collapsible Sidebar Using Bootstrap 3</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-      deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-      deserunt mollit anim id est laborum.</p>
-
-    <div class="line"></div>
-
-    <h2>Lorem Ipsum Dolor</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-      deserunt mollit anim id est laborum.</p>
-
-    <div class="line"></div>
-
-    <h2>Lorem Ipsum Dolor</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-      deserunt mollit anim id est laborum.</p>
-
-    <div class="line"></div>
-
-    <h3>Lorem Ipsum Dolor</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-      dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-      fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-      deserunt mollit anim id est laborum.</p>
   </div>
 </div>
-
-
-<!-- jQuery CDN -->
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<!-- Bootstrap Js CDN -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- jQuery Custom Scroller CDN -->
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#sidebar").mCustomScrollbar({
-      theme: "minimal"
-    });
-
-    $('#sidebarCollapse').on('click', function () {
-      $('#sidebar, #content').toggleClass('active');
-      $('.collapse.in').toggleClass('in');
-      $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-    });
-  });
-</script>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col min-vh-100 py-3">
+      <!-- toggler -->
+      <button class="btn float-end" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+        <i class="bi bi-arrow-right-square-fill fs-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></i>
+      </button>
+      Content..
+    </div>
+  </div>
+</div>
 
 {% endblock %}
