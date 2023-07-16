@@ -1,2 +1,8 @@
 User-Agent: *
+Disallow: /400
+Disallow:/500
+Disallow:/about/
+
 Allow: /
+
+Sitemap: https://pw-silkroad.vercel.app/sitemap.xml
