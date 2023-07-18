@@ -78,17 +78,81 @@
   </div>
 </div>
 
-<div class="position-relative m-4">
-  <div class="progress" role="progressbar" aria-label="Progress" aria-valuenow="50" aria-valuemin="0"
-    aria-valuemax="100" style="height: 2px;">
-    <div class="progress-bar" id="Bar"></div>
-  </div>
-  <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary"
-    style="width: 4rem; height:4rem;" data-bs-toggle="modal" data-bs-target="#exampleModal">简介</button>
-  <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary rounded-pill"
-    style="width: 4rem; height:4rem;">2</button>
-  <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill"
-    style="width: 4rem; height:4rem;">3</button>
-</div>
+<style>
+  .timeline {
+    border-left: 1px solid hsl(0, 0%, 90%);
+    position: relative;
+    list-style: none;
+  }
+
+  .timeline .timeline-item {
+    position: relative;
+  }
+
+  .timeline .timeline-item:after {
+    position: absolute;
+    display: block;
+    top: 0;
+  }
+
+  .timeline .timeline-item:after {
+    background-color: hsl(0, 0%, 90%);
+    left: -38px;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    content: "";
+  }
+</style>
+
+<!-- Section: Timeline -->
+<section class="py-5">
+  <ul class="timeline">
+    <li class="timeline-item mb-5">
+      <h5 class="fw-bold">Our company starts its operations</h5>
+      <p class="text-muted mb-2 fw-bold">11 March 2020</p>
+      <p class="text-muted">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+        necessitatibus adipisci, ad alias, voluptate pariatur officia
+        repellendus repellat inventore fugit perferendis totam dolor
+        voluptas et corrupti distinctio maxime corporis optio?
+      </p>
+    </li>
+
+    <li class="timeline-item mb-5">
+      <h5 class="fw-bold">First customer</h5>
+      <p class="text-muted mb-2 fw-bold">19 March 2020</p>
+      <p class="text-muted">
+        Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed
+        aliquet laoreet sapien, eget pulvinar lectus maximus vel.
+        Phasellus suscipit porta mattis.
+      </p>
+    </li>
+
+    <li class="timeline-item mb-5">
+      <h5 class="fw-bold">Our team exceeds 10 people</h5>
+      <p class="text-muted mb-2 fw-bold">24 June 2020</p>
+      <p class="text-muted">
+        Orci varius natoque penatibus et magnis dis parturient montes,
+        nascetur ridiculus mus. Nulla ullamcorper arcu lacus, maximus
+        facilisis erat pellentesque nec. Duis et dui maximus dui aliquam
+        convallis. Quisque consectetur purus erat, et ullamcorper sapien
+        tincidunt vitae.
+      </p>
+    </li>
+
+    <li class="timeline-item mb-5">
+      <h5 class="fw-bold">Earned the first million $!</h5>
+      <p class="text-muted mb-2 fw-bold">15 October 2020</p>
+      <p class="text-muted">
+        Nulla ac tellus convallis, pulvinar nulla ac, fermentum diam. Sed
+        et urna sit amet massa dapibus tristique non finibus ligula. Nam
+        pharetra libero nibh, id feugiat tortor rhoncus vitae. Ut suscipit
+        vulputate mattis.
+      </p>
+    </li>
+  </ul>
+</section>
+<!-- Section: Timeline -->
 
 {% endblock %}
