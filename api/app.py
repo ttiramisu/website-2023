@@ -39,6 +39,10 @@ def silkroad_belt_road():
 def coming_soon():
     return render_template('coming-soon.html')
 
+@app.route('/test')
+def test():
+     return render_template('test.html')
+
 ###############################
 ############ ERROR ############
 ###############################
