@@ -2,12 +2,6 @@
 
 {% block content %}
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
@@ -18,11 +12,8 @@
       <div class="modal-body">
         <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(135).webp" class="card-img-top"
           alt="Responsive image">
-
-        丝绸之路也简称为丝路，这词最早来自于德国地理学家费迪南·冯·李希霍芬男爵于1877年出版的一套五卷本的地图集。丝绸之路从长安或洛阳出发，经过甘肃、新疆，到中亚、西亚、欧洲，并联结地中海各国的陆上通道。丝绸之路有大概六千四百公里长，也在促进东西方之间的经济、文化、政治和宗教互动方面发挥着核心作用。
-        这样的通信与贸易之路在欧亚大陆上纵横交错，在历史上逐渐形成了我们今天所称的丝绸之路。丝绸之路覆盖着路上和海上交通，来自各个地方的人们在此沿线进行着丝绸与其他商品的交易。最初丝绸之路是西汉时张骞出使西域开辟的以长安为起点，最远到达西亚诸国的陆上贸易通道，到东汉时班超再次出使西域打通了荒废已久的丝绸之路，并将路线东端延伸到东汉京师洛阳，西端延伸到欧洲(罗马)，这是目前完整的丝绸之路路线。
         <br>
-        2014年6月22日，在杜哈举行的第38届的世界遗产委员会会议上，丝绸之路同京杭大运河一起，被联合国教科文组织列为世界遗产。
+        丝绸之路也简称为丝路，这词最早来自于德国地理学家费迪南·冯·李希霍芬男爵于1877年出版的一套五卷本的地图集。丝绸之路从长安或洛阳出发，经过甘肃、新疆，到中亚、西亚、欧洲，并联结地中海各国的陆上通道。丝绸之路有大概六千四百公里长，也在促进东西方之间的经济、文化、政治和宗教互动方面发挥着核心作用。
         <br><br>
         这样的通信与贸易之路在欧亚大陆上纵横交错，在历史上逐渐形成了我们今天所称的丝绸之路。丝绸之路覆盖着路上和海上交通，来自各个地方的人们在此沿线进行着丝绸与其他商品的交易。最初丝绸之路是西汉时张骞出使西域开辟的以长安为起点，最远到达西亚诸国的陆上贸易通道，到东汉时班超再次出使西域打通了荒废已久的丝绸之路，并将路线东端延伸到东汉京师洛阳，西端延伸到欧洲(罗马)，这是目前完整的丝绸之路路线。
         <br><br>
@@ -35,97 +26,6 @@
   </div>
 </div>
 
-<!--
-<style>
-  .timeline {
-    border-left: 1px solid hsl(0, 0%, 90%);
-    position: relative;
-    list-style: none;
-  }
-
-  .timeline .timeline-item {
-    position: relative;
-  }
-
-  .timeline .timeline-item:after {
-    position: absolute;
-    display: block;
-    top: 0;
-  }
-
-  .timeline .timeline-item:after {
-    background-color: hsl(0, 0%, 90%);
-    left: -38px;
-    border-radius: 50%;
-    height: 11px;
-    width: 11px;
-    content: "";
-  }
-
-  section {
-    margin-left: 5rem;
-  }
-</style>
-
-<section class="py-5">
-  <ul class="timeline">
-    <li class="timeline-item mb-5">
-      <h5 class="fw-bold">Our company starts its operations</h5>
-      <p class="text-muted mb-2 fw-bold">11 March 2020</p>
-      <p class="text-muted">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-        necessitatibus adipisci, ad alias, voluptate pariatur officia
-        repellendus repellat inventore fugit perferendis totam dolor
-        voluptas et corrupti distinctio maxime corporis optio?
-      </p>
-    </li>
-
-    <li class="timeline-item mb-5">
-      <h5 class="fw-bold">Our company starts its operations</h5>
-      <p class="text-muted mb-2 fw-bold">11 March 2020</p>
-      <p class="text-muted">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-        necessitatibus adipisci, ad alias, voluptate pariatur officia
-        repellendus repellat inventore fugit perferendis totam dolor
-        voluptas et corrupti distinctio maxime corporis optio?
-      </p>
-    </li>
-
-    <li class="timeline-item mb-5">
-      <h5 class="fw-bold">First customer</h5>
-      <p class="text-muted mb-2 fw-bold">19 March 2020</p>
-      <p class="text-muted">
-        Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed
-        aliquet laoreet sapien, eget pulvinar lectus maximus vel.
-        Phasellus suscipit porta mattis.
-      </p>
-    </li>
-
-    <li class="timeline-item mb-5">
-      <h5 class="fw-bold">Our team exceeds 10 people</h5>
-      <p class="text-muted mb-2 fw-bold">24 June 2020</p>
-      <p class="text-muted">
-        Orci varius natoque penatibus et magnis dis parturient montes,
-        nascetur ridiculus mus. Nulla ullamcorper arcu lacus, maximus
-        facilisis erat pellentesque nec. Duis et dui maximus dui aliquam
-        convallis. Quisque consectetur purus erat, et ullamcorper sapien
-        tincidunt vitae.
-      </p>
-    </li>
-
-    <li class="timeline-item mb-5">
-      <h5 class="fw-bold">Earned the first million $!</h5>
-      <p class="text-muted mb-2 fw-bold">15 October 2020</p>
-      <p class="text-muted">
-        Nulla ac tellus convallis, pulvinar nulla ac, fermentum diam. Sed
-        et urna sit amet massa dapibus tristique non finibus ligula. Nam
-        pharetra libero nibh, id feugiat tortor rhoncus vitae. Ut suscipit
-        vulputate mattis.
-      </p>
-    </li>
-  </ul>
-</section>
--->
 <style>
   /* The actual timeline (the vertical ruler) */
   .main-timeline-2 {
@@ -254,7 +154,7 @@
             alt="Responsive image">
           <div class="card-body p-4">
             <h4 class="fw-bold mb-4">简介</h4>
-            <p class="text-muted mb-4"><i class="far fa-clock" aria-hidden="true"></i> 2023</p>
+            <p class="mb-0">丝绸之路是古代陆上通道，起点长安，终点欧洲罗马，长6400公里，促进东西方经济、文化、政治、宗教互动。2014年被列为世界遗产。</p>
             <button type="button" class="btn-main btn-light btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
               了解更多
             </button>
