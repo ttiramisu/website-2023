@@ -1,0 +1,749 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+  body {
+    position: relative;
+  }
+
+  body:before {
+    position: absolute;
+    content: "";
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: .3s all ease-in-out;
+    -o-transition: .3s all ease-in-out;
+    transition: .3s all ease-in-out;
+  }
+
+  body.show-sidebar:before {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .site-section {
+    padding: 7rem 0;
+  }
+
+  aside,
+  main {
+    height: 100vh;
+    min-height: 580px;
+  }
+
+  aside {
+    width: 300px;
+    left: 0;
+    z-index: 1001;
+    position: fixed;
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    transform: translateX(-100%);
+    background-color: #fff;
+    -webkit-transition: 1s -webkit-transform cubic-bezier(0.23, 1, 0.32, 1);
+    transition: 1s -webkit-transform cubic-bezier(0.23, 1, 0.32, 1);
+    -o-transition: 1s transform cubic-bezier(0.23, 1, 0.32, 1);
+    transition: 1s transform cubic-bezier(0.23, 1, 0.32, 1);
+    transition: 1s transform cubic-bezier(0.23, 1, 0.32, 1), 1s -webkit-transform cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .show-sidebar aside {
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+
+  aside .toggle {
+    padding-left: 30px;
+    padding-top: 30px;
+    position: absolute;
+    right: 0;
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+
+  .show-sidebar aside .toggle .burger:before,
+  .show-sidebar aside .toggle .burger span,
+  .show-sidebar aside .toggle .burger:after {
+    background: #fff;
+  }
+
+  .show-sidebar aside {
+    -webkit-box-shadow: 10px 0 30px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 0 30px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  aside .side-inner {
+    padding: 30px 0;
+    height: 100vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  aside .side-inner .profile {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #efefef;
+  }
+
+  aside .side-inner .profile img {
+    width: 80px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+  }
+
+  aside .side-inner .profile .name {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+
+  aside .side-inner .profile .country {
+    font-size: 14px;
+    color: #cfcfcf;
+  }
+
+  aside .side-inner .counter {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #efefef;
+    text-align: center;
+  }
+
+  aside .side-inner .counter div .number {
+    display: block;
+    font-size: 20px;
+    color: #000;
+  }
+
+  aside .side-inner .counter div .number-label {
+    color: #cfcfcf;
+  }
+
+  aside .side-inner .nav-menu ul,
+  aside .side-inner .nav-menu ul li {
+    padding: 0;
+    margin: 0px;
+    list-style: none;
+  }
+
+  aside .side-inner .nav-menu ul li a {
+    display: block;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #8b8b8b;
+    position: relative;
+    -webkit-transition: .3s padding-left ease;
+    -o-transition: .3s padding-left ease;
+    transition: .3s padding-left ease;
+  }
+
+  aside .side-inner .nav-menu ul li a:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0px;
+    background-color: #ff7315;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: .3s opacity ease, .3s visibility ease, .3s width ease;
+    -o-transition: .3s opacity ease, .3s visibility ease, .3s width ease;
+    transition: .3s opacity ease, .3s visibility ease, .3s width ease;
+  }
+
+  aside .side-inner .nav-menu ul li a:active,
+  aside .side-inner .nav-menu ul li a:focus,
+  aside .side-inner .nav-menu ul li a:hover {
+    outline: none;
+  }
+
+  aside .side-inner .nav-menu ul li a:hover {
+    background: #fcfcfc;
+    color: #000;
+  }
+
+  aside .side-inner .nav-menu ul li a:hover:before {
+    width: 4px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  aside .side-inner .nav-menu ul li.active a {
+    background: #fcfcfc;
+    color: #000;
+  }
+
+  aside .side-inner .nav-menu ul li.active a:before {
+    opacity: 1;
+    visibility: visible;
+    width: 4px;
+  }
+
+  main {
+    width: calc(100%);
+  }
+
+  main .post-entry {
+    margin-bottom: 30px;
+  }
+
+  main .post-entry .custom-thumbnail {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 80px;
+    flex: 0 0 80px;
+    margin-right: 30px;
+  }
+
+  main .post-content h3 {
+    font-size: 18px;
+  }
+
+  main .post-content .post-meta {
+    font-size: 15px;
+    color: #ccc;
+  }
+
+  /* Burger */
+  .burger {
+    width: 28px;
+    height: 32px;
+    cursor: pointer;
+    position: relative;
+    z-index: 99;
+    float: right;
+  }
+
+  .burger:before,
+  .burger span,
+  .burger:after {
+    width: 100%;
+    height: 2px;
+    display: block;
+    background: #000;
+    border-radius: 2px;
+    position: absolute;
+    opacity: 1;
+  }
+
+  .burger:before,
+  .burger:after {
+    -webkit-transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    -o-transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    -webkit-transition: top 0.35s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1), background-color 1.15s cubic-bezier(0.86, 0, 0.07, 1);
+    content: "";
+  }
+
+  .burger:before {
+    top: 4px;
+  }
+
+  .burger span {
+    top: 15px;
+  }
+
+  .burger:after {
+    top: 26px;
+  }
+
+  /* Hover */
+  .burger:hover:before {
+    top: 7px;
+  }
+
+  .burger:hover:after {
+    top: 23px;
+  }
+
+  /* Click */
+  .burger.active span {
+    opacity: 0;
+  }
+
+  .burger.active:before,
+  .burger.active:after {
+    top: 40%;
+  }
+
+  .burger.active:before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5);
+    /*for IE*/
+  }
+
+  .burger.active:after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-5);
+    /*for IE*/
+  }
+
+  .burger:focus {
+    outline: none;
+  }
+</style>
+
+<aside class="sidebar">
+  <div class="toggle">
+    <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
+      <span></span>
+    </a>
+  </div>
+  <div class="side-inner">
+
+    <div class="profile">
+      <img src="images/person_profile.jpg" alt="Image" class="img-fluid">
+      <h3 class="name">Debby Williams</h3>
+      <span class="country">New York, USA</span>
+    </div>
+
+    <div class="counter d-flex justify-content-center">
+      <!-- <div class="row justify-content-center"> -->
+      <div class="col">
+        <strong class="number">892</strong>
+        <span class="number-label">Posts</span>
+      </div>
+      <div class="col">
+        <strong class="number">22.5k</strong>
+        <span class="number-label">Followers</span>
+      </div>
+      <div class="col">
+        <strong class="number">150</strong>
+        <span class="number-label">Following</span>
+      </div>
+      <!-- </div> -->
+    </div>
+
+    <div class="nav-menu">
+      <ul>
+        <li class="active"><a href="#"><span class="icon-home mr-3"></span>Feed</a></li>
+        <li><a href="#"><span class="icon-search2 mr-3"></span>Explore</a></li>
+        <li><a href="#"><span class="icon-notifications mr-3"></span>Notifications</a></li>
+        <li><a href="#"><span class="icon-location-arrow mr-3"></span>Direct</a></li>
+        <li><a href="#"><span class="icon-pie-chart mr-3"></span>Stats</a></li>
+        <li><a href="#"><span class="icon-sign-out mr-3"></span>Sign out</a></li>
+      </ul>
+    </div>
+  </div>
+
+</aside>
+
+<!-- MODALS -->
+<div class="modal fade" id="intro" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">简介</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(135).webp" class="card-img-top"
+          alt="Responsive image">
+        <br><br>
+        丝绸之路也简称为丝路，这词最早来自于德国地理学家费迪南·冯·李希霍芬男爵于1877年出版的一套五卷本的地图集。丝绸之路从长安或洛阳出发，经过甘肃、新疆，到中亚、西亚、欧洲，并联结地中海各国的陆上通道。丝绸之路有大概六千四百公里长，也在促进东西方之间的经济、文化、政治和宗教互动方面发挥着核心作用。
+        <br><br>
+        这样的通信与贸易之路在欧亚大陆上纵横交错，在历史上逐渐形成了我们今天所称的丝绸之路。丝绸之路覆盖着路上和海上交通，来自各个地方的人们在此沿线进行着丝绸与其他商品的交易。最初丝绸之路是西汉时张骞出使西域开辟的以长安为起点，最远到达西亚诸国的陆上贸易通道，到东汉时班超再次出使西域打通了荒废已久的丝绸之路，并将路线东端延伸到东汉京师洛阳，西端延伸到欧洲(罗马)，这是目前完整的丝绸之路路线。
+        <br><br>
+        2014年6月22日，在杜哈举行的第38届的世界遗产委员会会议上，丝绸之路同京杭大运河一起，被联合国教科文组织列为世界遗产。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-main btn-light btn" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="parts" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">丝绸之路的三个部分</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(135).webp" class="card-img-top"
+          alt="Responsive image">
+        <br>
+        <br>
+        丝绸之路一般可分为三段，而每一段又都可分为北中南三条线路。东段并会从长安到达玉门关，阳关。中段并从 从玉门关、阳关以西至葱岭。最后，西段又从从葱岭往西经过中亚、西亚直到欧洲。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-main btn-light btn" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="history" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">远古时期的丝绸之路</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(135).webp" class="card-img-top"
+          alt="Responsive image">
+        <br>
+        <br>
+        早期的丝绸之路上并不是以丝绸为主要交易物资，在公元前15世纪左右，东亚商人就已经出入塔克拉玛干沙漠边缘，购买产自现新疆地区的和田玉石，同时出售海贝等沿海特产，同中亚地区进行小规模贸易往来。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-main btn-light btn" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="china" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">最初发展 —— 中国</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(135).webp" class="card-img-top"
+          alt="Responsive image">
+        <br>
+        <br>
+        在商代帝王武丁配偶坟茔的考古中人们发现了产自新疆的软玉。这说明至少在公元前13世纪，中国就已经开始和西域乃至更远的地区进行商贸往来。依照晋人郭璞在《穆天子传》中的记载，前963年周穆王曾携带丝绸、金银的贵重品西行至里海沿岸，并将和田玉带回中国。虽然这种说法的真实性还没有定论，但是目前在丝绸之路东段沿线的考古中，确实出土了部分在这一时期的丝绸制品。
+        <br><br>
+        在战国时期，中原地区已经存在了相当规模的对外经济交流。《史记·赵世家》中记录了苏厉与赵惠文王的一段对话：“马、胡犬不东下，昆山之玉不出，此三宝者非王有已。”苏厉用赵国通过对外贸易得到的财富威胁赵惠文王一段从侧面说明了这一点：因为人们相信，“昆山之玉”即为昆仑下出产的软玉，而胡犬则是产自中亚、西亚的一个狗的品种。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-main btn-light btn" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="mid-asia" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">最初发展 —— 中亚</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(135).webp" class="card-img-top"
+          alt="Responsive image">
+        <br>
+        <br>
+        随着公元前5世纪左右河西走廊的开辟，带动了中原对西方的商贸交流，塔里木盆地内印欧人的绿洲城邦国家诸如鄯善、龟兹、楼兰、疏勒、且末等国家纷纷在这一时期逐渐出现。而当时的欧洲国家已经出现了赛里斯——对中国的称呼。这种小规模的贸易交流说明在张骞以前东西方之间已经有经过直接或间接的各种方式而持续长时间的贸易交流。
+        <br><br>
+        不仅仅是丝绸，同时丝绸之路上另一件著名的商品，产自今阿富汗巴达克山的青金石早在公元前13世纪就开始出现在古中国、古印度、古埃及——这意味着中西亚地区的商旅贸易开始的时间要比这一地区部分国家的诞生还要早些。之后不久，青金石的贸易开始传入印度河流域文明的哈拉帕。后来成为佛教七宝之一。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-main btn-light btn" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="mid-east" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">最初发展 —— 中东</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(135).webp" class="card-img-top"
+          alt="Responsive image">
+        <br>
+        <br>
+        作为世界上最早出现国家的文明之一，目前很多考古发现证明古埃及人在很早以前就开始从事北非、地中海及西亚的贸易。人们相信，在前14世纪，埃及人已经造出了海船。
+        <br><br>
+        在埃及，人们发现了距今5000余年，产自阿富汗的青金石，说明埃及人已经开始沿着这条被称为丝绸之路的道路上，展开了一定规模的贸易。一些人认为是前1070年左右丝绸残骸的碎片已经被发现，这意味着至少在前1070年埃及可能已经与中国有了间接的贸易往来。不过此后不久丝绸在埃及的地位一落千丈，并绝迹于此后很长一段时间的史册。同时，这些前11世纪的丝绸究竟是中国养蚕技术所出现的丝绸，还是一个来自地中海沿岸累范特或者中东的荒野丝，就是一个极有争议的话题了。
+        <br><br>
+        在一统古埃及、黎凡特、小亚细亚、大伊朗的中央集权的君主制国家阿契美尼德王朝（前553—前334年）国王冈比西斯二世（前529年至前522年在位）和大流士一世（前522年至前486年在位）统治下，四处扩张的波斯建立了幅员辽阔的包括中、西亚在内的君主制国家。史料记载这位帝王喜爱爱琴海生产的鲜鱼和故乡波斯的水。为此大流士一世建立了一条连接这个中央集权君主制国家—阿契美尼德王朝（前553—前334年）首都苏萨（位于底格里斯河下游东岸靠近扎格罗斯山脉的一个城市）到小亚细亚以弗所和萨狄斯的全长1600多公里的的“波斯御道”，这条仅由王室使用的皇道在沿线各段设立驿站，借助每个驿站的好马和驭手，皇室所需要的一切通过这条道第一时间送至首都，再将国王的指令传播到波斯全国。依照皇道的效率，一位向大流士一世进献快信的人只需9天即可送至首都，而同样的距离对于普通人而言需要3个月。一方面这个中央集权君主制国家—阿契美尼德王朝（前553—前334年）利用这样一条联系小亚细亚和美索不达米亚各地的国道加强了中央政府对各地的统治，另一方面也直接带动了这一地区的商贸活动。
+        <br><br>
+        在巴尔干半岛的君主制国家—马其顿王国（前356—前312年）的国王亚历山大大帝建立他横跨欧、亚、非三洲的马其顿帝国（有学者认为，这就是中国古籍记载的“犁轩”）后，他的继业者托勒密一世在前323年最终得到了埃及并建立托勒密王朝。希腊人开始积极促进小亚细亚、美索不达米亚、黎凡特、埃及、大伊朗、印度之间通过希腊人的港口进行的贸易活动，在陆地上希腊人也一样在贸易领域非常活跃。这一时期欧亚之间的繁荣的经贸并不仅是希腊人的成就，地处阿拉伯半岛的阿拉伯人部落—尤其是纳巴泰人（前106年为罗马共和国所征服）为中西亚的贸易起到了不可忽视的作用。
+        <br><br>
+        希腊人的第一步就是利用君主制国家—马其顿帝国（前356—前312年）在中亚河中地区和大呼罗珊乃至更东方的扩张来打通并控制东西方之间的陆上丝绸之路，帝国东部边境也许已经到达了大宛国（今吉尔吉斯斯坦费尔干纳盆地）——如今帕米尔高原的西部境外。如今人们在这一带的考古发现了亚历山大大帝在前329年建立的城市——苦盏（希腊人命其为绝域亚历山大城，即亚历山大东征期间的建造的最东方的一个城市）。
+        <br><br>
+        经过继业者战争，在接下来的260年间，希腊人保持了塞琉古帝国在亚洲西部的统治。前250年，塞琉古帝国总督狄奥多特据大夏和粟特独立，他和他的后继者德米特里一世向四周斯基泰人和萨尔马提亚人地区、安息和大宛扩张领土。继续沿着马其顿人过去的道路向西拓展。在大夏国王欧西德姆斯领导时期（前230-200年）时，大夏控制的最东部国界线不仅推进并超过了苦盏，有证据显示他们的侦察队在前200年左右已经到达过疏勒，这是有史以来最早的，有据可考的一次连接中原与西方的活动。古希腊历史学家斯特拉波曾这样评价这次行动：“他们甚至将自己国家的国土拓展至塞里斯（中国）和弗林尼。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-main btn-light btn" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="xiyu" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">最初发展 —— 中东</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(135).webp" class="card-img-top"
+          alt="Responsive image">
+        <br>
+        <br>
+        前2世纪，中国的西汉王朝经过文景之治后国力日渐强盛。第七代皇帝汉武帝刘彻为打击匈奴，计划策动西域诸国与汉朝联合，于是派遣张骞前往此前被冒顿单于逐出故土的大月氏。建元二年（前139年），张骞带一百多随从长安出发，日夜兼程西行。
+        <br><br>
+        自从张骞第一次出使西域各国，向汉武帝报告关于西域的详细形势后，汉朝对西域的外交政策由最早的联合月氏从而钳击匈奴，变成了“广地万里，重九译，威德遍于四海”的强烈愿望。并在前104年—前102年的李广利征大宛之战最终获胜之后，塔里木盆地的印欧人的城邦国家纷纷改投门庭接受汉朝廷政府的管辖，因而在乌垒和蔚犁等地屯田和驻军几千人，并设置了戍己校尉以对当地的管辖，后为了促进西域与长安的交流，汉武帝招募了大量身份低微的商人，利用朝廷配给的货物，到西域各国经商。这些具有冒险精神的商人中大部分成为富商巨贾，从而吸引了更多人从事丝绸之路上的贸易活动，极大地推动了中原与中西亚之间的经济文化交流，同时汉朝在各个关卡的海关税收方面取得了巨大利润。出于对匈奴与汉朝在塔里木盆地的反复争夺与丝路上强盗横行的状况考虑，加强对西域的控制，汉宣帝神爵二年，设立了汉朝对西域的直接管辖机构——西域都护府。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-main btn-light btn" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODALS -->
+
+<style>
+  /* The actual timeline (the vertical ruler) */
+  .main-timeline-2 {
+    position: relative;
+  }
+
+  /* The actual timeline (the vertical ruler) */
+  .main-timeline-2::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    background-color: #26c6da;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+
+  /* Container around content */
+  .timeline-2 {
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+  }
+
+  /* The circles on the timeline */
+  .timeline-2::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -11px;
+    background-color: #26c6da;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  /* Place the container to the left */
+  .left-2 {
+    padding: 0px 40px 20px 0px;
+    left: 0;
+  }
+
+  /* Place the container to the right */
+  .right-2 {
+    padding: 0px 0px 20px 40px;
+    left: 50%;
+  }
+
+  /* Add arrows to the left container (pointing right) */
+  .left-2::before {
+    content: " ";
+    position: absolute;
+    top: 18px;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+  }
+
+  /* Add arrows to the right container (pointing left) */
+  .right-2::before {
+    content: " ";
+    position: absolute;
+    top: 18px;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  /* Fix the circle for containers on the right side */
+  .right-2::after {
+    left: -14px;
+  }
+
+  /* Media queries - Responsive timeline on screens less than 600px wide */
+  @media screen and (max-width: 600px) {
+
+    /* Place the timelime to the left */
+    .main-timeline-2::after {
+      left: 31px;
+    }
+
+    /* Full-width containers */
+    .timeline-2 {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+    }
+
+    /* Make sure that all arrows are pointing leftwards */
+    .timeline-2::before {
+      left: 60px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+
+    /* Make sure all circles are at the same spot */
+    .left-2::after,
+    .right-2::after {
+      left: 18px;
+    }
+
+    .left-2::before {
+      right: auto;
+    }
+
+    /* Make all right containers behave like the left ones */
+    .right-2 {
+      left: 0%;
+    }
+  }
+</style>
+
+<section style="background-color: #F0F2F5;">
+  <div class="container py-5">
+    <div class="main-timeline-2">
+      <div class="timeline-2 left-2">
+        <div class="card">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(135).webp" class="card-img-top"
+            alt="Responsive image">
+          <div class="card-body p-4">
+            <h4 class="fw-bold mb-4">简介</h4>
+            <p class="mb-0">丝绸之路是古代陆上通道，起点长安，终点欧洲罗马，长6400公里，促进东西方经济、文化、政治、宗教互动。2014年被列为世界遗产。</p>
+            <br>
+            <button type="button" class="btn-main btn-light btn" data-bs-toggle="modal" data-bs-target="#intro">
+              了解更多
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-2 right-2">
+        <div class="card">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(129).webp" class="card-img-top"
+            alt="Responsive image">
+          <div class="card-body p-4">
+            <h4 class="fw-bold mb-4">丝绸之路的部位</h4>
+            <p class="mb-0">
+              丝绸之路每一段路线的分析
+            </p>
+            <br>
+            <button type="button" class="btn-main btn-light btn" data-bs-toggle="modal" data-bs-target="#parts">
+              了解更多
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-2 left-2">
+        <div class="card">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(131).webp" class="card-img-top"
+            alt="Responsive image">
+          <div class="card-body p-4">
+            <h4 class="fw-bold mb-4">远古时期</h4>
+            <p class="mb-0">丝绸之路在远古时期的重要性</p>
+            <br>
+            <button type="button" class="btn-main btn-light btn" data-bs-toggle="modal" data-bs-target="#history">
+              了解更多
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-2 right-2">
+        <div class="card">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(125).webp" class="card-img-top"
+            alt="Responsive image">
+          <div class="card-body p-4">
+            <h4 class="fw-bold mb-4">最初的发展 —— 中国</h4>
+            <p class="mb-0"></p>
+            <br>
+            <button type="button" class="btn-main btn-light btn" data-bs-toggle="modal" data-bs-target="#china">
+              了解更多
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-2 left-2">
+        <div class="card">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(144).webp" class="card-img-top"
+            alt="Responsive image">
+          <div class="card-body p-4">
+            <h4 class="fw-bold mb-4">最初的发展 —— 中亚</h4>
+            <p class="mb-0"></p>
+            <br>
+            <button type="button" class="btn-main btn-light btn" data-bs-toggle="modal" data-bs-target="#mid-asia">
+              了解更多
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-2 right-2">
+        <div class="card">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(125).webp" class="card-img-top"
+            alt="Responsive image">
+          <div class="card-body p-4">
+            <h4 class="fw-bold mb-4">最初的发展 —— 中东</h4>
+            <p class="mb-0"></p>
+            <br>
+            <button type="button" class="btn-main btn-light btn" data-bs-toggle="modal" data-bs-target="#mid-east">
+              了解更多
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-2 left-2">
+        <div class="card">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(144).webp" class="card-img-top"
+            alt="Responsive image">
+          <div class="card-body p-4">
+            <h4 class="fw-bold mb-4">张骞的西行</h4>
+            <p class="mb-0">丝绸之路如何帮助中国发展</p>
+            <br>
+            <button type="button" class="btn-main btn-light btn" data-bs-toggle="modal" data-bs-target="#xiyu">
+              了解更多
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
