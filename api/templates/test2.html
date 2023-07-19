@@ -746,4 +746,37 @@
   </div>
 </section>
 
+<script>
+  'use strict';
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+    document.getElementByClassName("js-menu-toggle").click(function (e) {
+
+      let $this = this;
+
+      if ($('body').classList.contains("show-sidebar")) {
+        $('body').classList.remove("show-sidebar");
+        $this.classList.remove("active");
+      } else {
+        $('body').classList.add("show-sidebar");
+        $this.classList.add("active");
+      }
+
+      e.preventDefault();
+
+    });
+
+    document.mouseup(function (e) {
+      let container = document.getElementByClassName("sidebar");
+      if (!container.is(e.target) && container.has(e.target).length === 0) {
+        if ($('body').classList.contains("show-sidebar")) {
+          $('body').classList.remove("show-sidebar");
+          $('body').find('.js-menu-toggle').classList.remove("active");
+        }
+      }
+    });
+  });
+</script>
+
 {% endblock %}
