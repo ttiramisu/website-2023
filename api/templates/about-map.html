@@ -1,11 +1,17 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+  crossorigin=""
+/>
 <!-- Make sure you put this AFTER Leaflet's CSS -->
-<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<script
+  src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+  crossorigin=""
+></script>
 <style>
   #map {
     height: 90vh;
@@ -197,59 +203,124 @@
       url: "https://sites.google.com/student.hci.edu.sg/map/%E6%92%92%E9%A9%AC%E5%B0%94%E7%BD%95",
       linkText: "了解更多",
     },
-
-    ////////// USED TO BE COMMENTED OUT //////////
-
-    // {
-    //   lat: 39.775,
-    //   lng: 64.4253,
-    //   name: "布哈拉",
-    //   desc: "伊斯兰文化和贸易的中心",
-    //   url: "https://pw-silkroad.vercel.app/about/coming-soon",
-    //   linkText: "了解更多",
-    // },
-    // {
-    //   lat: 33.3128,
-    //   lng: 44.3615,
-    //   name: "巴格达",
-    //   desc: "阿拔斯王朝的都城；伊斯兰文化和贸易的中心",
-    //   url: "https://pw-silkroad.vercel.app/about/coming-soon",
-    //   linkText: "了解更多",
-    // },
-    // {
-    //   lat: 33.5138,
-    //   lng: 36.2765,
-    //   name: "大马士革",
-    //   desc: "古代城市，曾是罗马帝国东方属省的首府",
-    //   url: "https://pw-silkroad.vercel.app/about/coming-soon",
-    //   linkText: "了解更多",
-    // },
-    // {
-    //   lat: 31.7683,
-    //   lng: 35.2137,
-    //   name: "耶路撒冷",
-    //   desc: "宗教文化交汇点",
-    //   url: "https://pw-silkroad.vercel.app/about/coming-soon",
-    //   linkText: "了解更多",
-    // },
-    // {
-    //   lat: 41.0082,
-    //   lng: 28.9784,
-    //   name: "君士坦丁堡（伊斯坦布尔）",
-    //   desc: "拜占庭帝国的都城；连接欧洲和亚洲的重要城市",
-    //   url: "https://pw-silkroad.vercel.app/about/coming-soon",
-    //   linkText: "了解更多",
-    // },
+    {
+      lat: 37.2416,
+      lng: 62.1723,
+      name: "玛吉亚娜",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 41.0082,
+      lng: 28.9784,
+      name: "伊斯坦布尔",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 35.6533,
+      lng: 51.3833,
+      name: "雷伊",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 34.7989,
+      lng: 48.5146,
+      name: "以克巴坦那",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 33.0811,
+      lng: 44.5795,
+      name: "克特西丰",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 32.6546,
+      lng: 51.6679,
+      name: "伊斯法罕",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 29.9358,
+      lng: 52.8919,
+      name: "波斯波利斯",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 32.1969,
+      lng: 48.2447,
+      name: "苏萨",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 32.5381,
+      lng: 44.4279,
+      name: "巴比伦",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 30.5019,
+      lng: 47.8192,
+      name: "卡拉克斯",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 36.097,
+      lng: 43.3281,
+      name: "尼姆鲁德",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 36.2021,
+      lng: 37.1343,
+      name: "阿勒颇",
+      desc: "",
+      url: "",
+      linkText: "了解更多",
+    },
+    {
+      lat: 41.0082,
+      lng: 28.9784,
+      name: "君士坦丁堡（伊斯坦布尔）",
+      desc: "拜占庭帝国的都城；连接欧洲和亚洲的重要城市",
+      url: "https://pw-silkroad.vercel.app/about/coming-soon",
+      linkText: "了解更多",
+    },
   ];
 
   // Add markers to the map
   for (let i = 0; i < markers.length; i++) {
     const marker = markers[i];
-    const link = '<a href="' + marker.url + '" target="_blank">' + marker.linkText + '</a>'; // add target attribute to link
-    const popupContent = "<b>" + marker.name + "</b><br>" + marker.desc + "<br>" + link; // add link to popup content
-    L.marker([marker.lat, marker.lng])
-      .bindPopup(popupContent)
-      .addTo(map);
+    const link =
+      '<a href="' +
+      marker.url +
+      '" target="_blank">' +
+      marker.linkText +
+      "</a>"; // add target attribute to link
+    const popupContent =
+      "<b>" + marker.name + "</b><br>" + marker.desc + "<br>" + link; // add link to popup content
+    L.marker([marker.lat, marker.lng]).bindPopup(popupContent).addTo(map);
   }
 
   // Define an array of coordinates for the polyline
@@ -265,6 +336,7 @@
     { lat: 37.06, lng: 80.01 },
     { lat: 38.2327, lng: 77.1324 },
     { lat: 37.4622, lng: 75.1328 },
+    { lat: 40.3143, lng: 70.5633 },
   ];
 
   // Define options for the polyline
@@ -283,6 +355,43 @@
   ];
 
   let polyline1a = L.polyline(path1a, path1Options).addTo(map);
+
+  let path1b = [
+    { lat: 37.4622, lng: 75.1328 },
+    { lat: 36.2048, lng: 59.6349 },
+    { lat: 35.6533, lng: 51.3833 },
+    { lat: 34.7989, lng: 48.5146 },
+    { lat: 33.0811, lng: 44.5795 },
+    { lat: 32.5381, lng: 44.4279 },
+    { lat: 36.097, lng: 43.3281 },
+    { lat: 36.2021, lng: 37.1343 },
+    { lat: 41.0082, lng: 28.9784 },
+  ];
+
+  let polyline1b = L.polyline(path1b, path1Options).addTo(map);
+
+  let path1c = [
+    { lat: 34.7989, lng: 48.5146 },
+    { lat: 32.6546, lng: 51.6679 },
+    { lat: 29.9358, lng: 52.8919 },
+    { lat: 32.1969, lng: 48.2447 },
+    { lat: 32.5381, lng: 44.4279 },
+  ];
+
+  let path1cOptions = {
+    color: "blue",
+    weight: 3,
+    opacity: 0.7,
+  };
+
+  let path1d = [
+    { lat: 32.1969, lng: 48.2447 },
+    { lat: 30.5019, lng: 47.8192 },
+  ];
+
+  let polyline1c = L.polyline(path1c, path1cOptions).addTo(map);
+
+  let polyline1d = L.polyline(path1d, path1cOptions).addTo(map);
 
   let path2 = [
     { lat: 39.5, lng: 97.34 },
@@ -313,6 +422,7 @@
     { lat: 43.5429, lng: 81.164 },
     { lat: 41.184, lng: 69.1647 },
     { lat: 40.3143, lng: 70.5633 },
+    { lat: 37.2416, lng: 62.1723 },
     { lat: 36.2048, lng: 59.6349 },
   ];
 
