@@ -56,10 +56,6 @@
   width: 0%;
 }
 
-aside {
-  display: inline-block !important;
-}
-
 .rounded {
   border-radius: 0.3rem;
 }
