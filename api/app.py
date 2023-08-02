@@ -47,10 +47,6 @@ def coming_soon():
 def test():
      return render_template('test.html')
 
-@app.route('/test2')
-def test2():
-     return render_template('test2.html')
-
 ###############################
 ############ ERROR ############
 ###############################
