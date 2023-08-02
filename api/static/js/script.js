@@ -15,10 +15,6 @@ const yearEl = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
 yearEl.textContent = currentYear;
 
-window.onscroll = () => {
-  progress();
-};
-
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId);
   if (section) {
