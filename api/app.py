@@ -39,9 +39,17 @@ def silkroad_belt_road():
 def reference():
     return render_template('reference.html')
 
-@app.route('/game')
-def game():
-     return render_template('game.html')
+@app.route('/game/role')
+def role():
+     return render_template('role.html')
+
+@app.route('/game/design')
+def design():
+     return render_template('design.html')
+
+@app.route('/game/rules')
+def rules():
+     return render_template('rule.html')
 
 @app.route('/about/coming-soon')
 def coming_soon():
