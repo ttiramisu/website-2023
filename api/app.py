@@ -48,7 +48,7 @@ def design():
      return render_template('design.html')
 
 @app.route('/game/rules')
-def rules():
+def rule():
      return render_template('rule.html')
 
 @app.route('/about/coming-soon')
