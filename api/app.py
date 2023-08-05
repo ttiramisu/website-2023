@@ -40,7 +40,7 @@ def reference():
     return render_template('reference.html')
 
 @app.route('/game')
-def role():
+def game():
      return render_template('test2.html')
 
 @app.route('/game/role')
