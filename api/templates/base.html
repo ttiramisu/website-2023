@@ -89,8 +89,28 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('silkroad_belt_road') }}">一带一路</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="{{ url_for('game') }}">游戏</a>
+            </li> -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                游戏
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#">游戏辅助</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">角色</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">设计</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">规则</a>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('about') }}">关于我们</a>
