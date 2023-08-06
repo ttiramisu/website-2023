@@ -21,17 +21,6 @@
     font-size: 24px;
   }
 
-  .card-image {
-    margin-bottom: 10px;
-  }
-
-  .card-image img {
-    width: 100px;
-    /* Adjust the image size as needed */
-    height: 100px;
-    /* Adjust the image size as needed */
-  }
-
   .card-value {
     margin-bottom: 5px;
   }
@@ -98,36 +87,36 @@
     <div class="grid">
       <div class="game-container">
         <div class="card" id="drawn-card">
-          <div class="card-value" id="card-value">Card Value</div>
-          <div class="card-power" id="card-power">Card Power</div>
+          <div class="card-value" id="card-value"></div>
+          <div class="card-power" id="card-power"></div>
         </div>
       </div>
       <div class="player1">
         <div class="flex column">
           <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="" class="player">
           <h1>玩家一</h1>
-          <button class="draw-button">Draw Card</button>
+          <button class="draw-button btn btn-main">Draw Card</button>
         </div>
       </div>
       <div class="player2">
         <div class="flex column">
           <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="" class="player">
           <h1>玩家二</h1>
-          <button class="draw-button">Draw Card</button>
+          <button class="draw-button btn btn-main">Draw Card</button>
         </div>
       </div>
       <div class="player3">
         <div class="flex column">
           <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="" class="player">
           <h1>玩家三</h1>
-          <button class="draw-button">Draw Card</button>
+          <button class="draw-button btn btn-main">Draw Card</button>
         </div>
       </div>
       <div class="player4">
         <div class="flex column">
           <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="" class="player">
           <h1>玩家四</h1>
-          <button class="draw-button">Draw Card</button>
+          <button class="draw-button btn btn-main">Draw Card</button>
         </div>
       </div>
     </div>
@@ -202,6 +191,7 @@
   }
 
   secureShuffleDeck(customDeck);
+
   const drawButtons = document.getElementsByClassName('draw-button');
   for (let i = 0; i < drawButtons.length; i++) {
     drawButtons[i].addEventListener('click', drawCard);
