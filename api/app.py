@@ -56,8 +56,8 @@ def rule():
      return render_template('rule.html')
 
 @app.route('/test')
-def test2():
-     return render_template('test2.html')
+def test():
+     return render_template('test3.html')
 
 ###############################
 ############ ERROR ############
