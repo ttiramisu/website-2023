@@ -428,8 +428,10 @@
   }
 
   // Add event listeners to the plus and minus buttons for each player
-  const plusButtons = document.querySelectorAll('.add-minus[id$="+"]');
-  const minusButtons = document.querySelectorAll('.add-minus[id$="-"]');
+  const plusButtonsGold = document.querySelectorAll('.add-minus[data-type="gold"][data-action="add"]');
+  const minusButtonsGold = document.querySelectorAll('.add-minus[data-type="gold"][data-action="minus"]');
+  const plusButtonsSilver = document.querySelectorAll('.add-minus[data-type="silver"][data-action="add"]');
+  const minusButtonsSilver = document.querySelectorAll('.add-minus[data-type="silver"][data-action="minus"]');
   const plusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="add"]');
   const minusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="minus"]');
   const plusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="add"]');
@@ -466,7 +468,7 @@
     element.textContent = value.toString();
   }
 
-  plusButtons.forEach((button) => {
+  plusButtonsGold.forEach((button) => {
     button.addEventListener('click', () => {
       const playerId = button.dataset.player;
       const type = button.dataset.type;
@@ -475,7 +477,25 @@
     });
   });
 
-  minusButtons.forEach((button) => {
+  minusButtonsGold.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'minus';
+      updateCoin(playerId, type, action);
+    });
+  });
+
+  plusButtonsSilver.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'add';
+      updateCoin(playerId, type, action);
+    });
+  });
+
+  minusButtonsSilver.forEach((button) => {
     button.addEventListener('click', () => {
       const playerId = button.dataset.player;
       const type = button.dataset.type;
