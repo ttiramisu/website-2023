@@ -313,6 +313,9 @@
     { value: '风平浪静', power: '无特殊技能' },
     { value: '断粮', power: '食物和水各损失两个' },
     { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
     { value: '天有不测风云', power: '取出一整叠货物' },
     { value: '天有不测风云', power: '取出一整叠货物' },
     { value: '风平浪静', power: '无特殊技能' },
@@ -331,10 +334,16 @@
     { value: '劫匪来临', power: '损失两个货物和两个金币' },
     { value: '风平浪静', power: '无特殊技能' },
     { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
     { value: '内部矛盾', power: '减去一个保镖' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
     { value: '风平浪静', power: '无特殊技能' },
     { value: '内部矛盾', power: '减去一个保镖' },
     { value: '断粮', power: '食物和水各损失两个' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
     { value: '风平浪静', power: '无特殊技能' },
     { value: '风平浪静', power: '无特殊技能' },
     { value: '天有不测风云', power: '取出一整叠货物' },
@@ -357,6 +366,8 @@
     { value: '沙漠中的水源', power: '+2水' },
     { value: '断粮', power: '食物和水各损失两个' },
     { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
     { value: '断粮', power: '食物和水各损失两个' },
     { value: '量子穿越', power: '穿越到地图上任意地点' },
     { value: '风平浪静', power: '无特殊技能' },
@@ -368,6 +379,9 @@
     { value: '风平浪静', power: '无特殊技能' },
     { value: '皇帝驾崩', power: '回到起点' },
     { value: '皇帝驾崩', power: '回到起点' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
     { value: '飞天炸弹', power: '受到对方武器远程攻击' },
     { value: '劫匪来临', power: '损失两个货物和两个金币' },
     { value: '劫匪来临', power: '损失两个货物和两个金币' },
@@ -530,8 +544,8 @@
         cardElement.classList.remove('flipped');
       }, 500); // Remove the "flipped" class after half a second to complete the flip animation
 
-      secureShuffleDeck(customDeck);
       currentIndex = (currentIndex + 1) % customDeck.length;
+      secureShuffleDeck(customDeck);
     } else {
       document.getElementById('card-value').textContent = '牌被摸完了……';
       document.getElementById('card-power').textContent = '游戏结束……';
@@ -544,6 +558,7 @@
   const drawButtons = document.getElementsByClassName('draw-button');
   for (let i = 0; i < drawButtons.length; i++) {
     drawButtons[i].addEventListener('click', drawCard);
+    secureShuffleDeck(customDeck);
   }
 </script>
 
