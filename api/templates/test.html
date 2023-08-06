@@ -2,6 +2,97 @@
 
 {% block content %}
 
+<style>
+  .stuff {
+    margin-top: 2rem;
+  }
+
+  .card {
+    width: 240px;
+    height: 150px;
+    background-color: #f1f1f1;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+  }
+
+  .card-image {
+    margin-bottom: 10px;
+  }
+
+  .card-image img {
+    width: 100px;
+    /* Adjust the image size as needed */
+    height: 100px;
+    /* Adjust the image size as needed */
+  }
+
+  .card-value {
+    margin-bottom: 5px;
+  }
+
+  .card-power {
+    font-size: 18px;
+    font-style: italic;
+  }
+
+  .game-container {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 100px 200px 100px; */
+    justify-items: center;
+    align-items: center;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+
+  img {
+    width: 5rem;
+    height: 5rem;
+    border: 3.5px solid black;
+    border-radius: 50%;
+  }
+
+  .player1 {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .player2 {
+    grid-row: 1;
+    grid-column: 3;
+  }
+
+  .player3 {
+    grid-row: 3;
+    grid-column: 1;
+  }
+
+  .player4 {
+    grid-row: 3;
+    grid-column: 3;
+  }
+</style>
+
 <div class="flex stuff">
   <div class="grid">
     <div class="game-container">
@@ -40,5 +131,79 @@
     </div>
   </div>
 </div>
+
+<script>
+  const customDeck = [
+    { value: 'Ace', power: 'Special Power 1', imageUrl: 'ace.png' },
+    { value: '2', power: 'Special Power 2', imageUrl: '2.png' },
+    { value: '3', power: 'Special Power 3', imageUrl: '3.png' },
+    { value: '4', power: 'Special Power 4', imageUrl: '4.png' },
+    { value: '5', power: 'Special Power 5', imageUrl: '5.png' },
+    { value: '6', power: 'Special Power 6', imageUrl: '6.png' },
+    { value: '7', power: 'Special Power 7', imageUrl: '7.png' },
+    { value: '8', power: 'Special Power 8', imageUrl: '8.png' },
+    { value: '9', power: 'Special Power 9', imageUrl: '9.png' },
+    { value: '10', power: 'Special Power 10', imageUrl: '10.png' },
+    { value: '1sad', power: 'Special Power 1', imageUrl: '1.png' },
+    { value: '2sda', power: 'Special Power 2', imageUrl: '2.png' },
+    { value: '323', power: 'Special Power 3', imageUrl: '3.png' },
+    { value: '4qwe', power: 'Special Power 4', imageUrl: '4.png' },
+    { value: '45', power: 'Special Power 45', imageUrl: '45.png' },
+    { value: '4qw', power: 'Special Power 44', imageUrl: '4.png' },
+    { value: '443', power: 'Special Power 4324', imageUrl: '4.png' },
+    { value: '42', power: 'Special Power 4', imageUrl: '4.png' },
+    { value: '4wqe', power: 'Special Power 4eq', imageUrl: '4qwe.png' },
+    { value: '4ewr', power: 'Special Power 4qewq', imageUrl: '4.png' },
+
+    // Add more cards with their respective values, powers, and image URLs
+  ];
+
+  // Function to generate a cryptographically secure random integer in a specified range
+  function secureRandomInRange(min, max) {
+    const range = max - min + 1;
+    const byteArray = new Uint8Array(range);
+    let maxValid = 256 - (256 % range);
+
+    // Rejection sampling to get random integer within the range
+    let randomValue;
+    do {
+      window.crypto.getRandomValues(byteArray);
+      randomValue = byteArray[0];
+    } while (randomValue >= maxValid);
+
+    return min + (randomValue % range);
+  }
+
+  // Fisher-Yates cryptographically secure shuffle
+  function secureShuffleDeck(deck) {
+    for (let i = deck.length - 1; i > 0; i--) {
+      const j = secureRandomInRange(0, i);
+      [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+  }
+
+  let currentIndex = 0; // Keep track of the current card index in the circular queue
+
+  function drawCard() {
+    if (customDeck.length > 0) {
+      const drawnCard = customDeck[currentIndex];
+      document.getElementById('card-value').textContent = drawnCard.value;
+      document.getElementById('card-power').textContent = drawnCard.power;
+
+      // Move to the next card in the circular queue
+      currentIndex = (currentIndex + 1) % customDeck.length;
+
+    } else {
+      document.getElementById('card-value').textContent = 'Deck is empty';
+      document.getElementById('card-power').textContent = '';
+    }
+  }
+
+  secureShuffleDeck(customDeck);
+  const drawButtons = document.getElementsByClassName('draw-button');
+  for (let i = 0; i < drawButtons.length; i++) {
+    drawButtons[i].addEventListener('click', drawCard);
+  }
+</script>
 
 {% endblock %}
