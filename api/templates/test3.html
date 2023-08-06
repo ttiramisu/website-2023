@@ -16,6 +16,9 @@
     align-items: center;
     font-size: 24px;
     text-align: center;
+    position: relative;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
   }
 
   .card-value {
@@ -83,33 +86,42 @@
     grid-column: 3;
   }
 
-  .flash {
-    animation: flashAnimation 1s infinite;
+  /* New class for the flipped state */
+  .--card.flipped {
+    transform: rotateX(180deg);
+  }
+
+  /* Add styles for the card front and back face */
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .card-front {
+    z-index: 2;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+    z-index: 1;
+    /* Add any specific styles for the back face of the card */
+    background-color: #4caf50;
+    color: white;
   }
 
   .add-minus {
     width: 24px;
     height: 24px;
     border-radius: 50%;
-  }
-
-  .progress-bar-container {
-    display: flex;
-    align-items: center;
-  }
-
-  @keyframes flashAnimation {
-
-    0%,
-    50%,
-    100% {
-      opacity: 1;
-    }
-
-    25%,
-    75% {
-      opacity: 0;
-    }
   }
 </style>
 
@@ -118,8 +130,13 @@
     <div class="grid">
       <div class="game-container">
         <div class="--card" id="drawn-card">
-          <div class="card-value" id="card-value">请按摸牌按钮</div>
-          <div class="card-power" id="card-power">开始游戏</div>
+          <div class="card-front">
+            <div class="card-value" id="card-value">请按摸牌按钮</div>
+            <div class="card-power" id="card-power">开始游戏</div>
+          </div>
+        </div>
+        <div class="card-back">
+          <img src="{{ url_for('static', filename='img/logo.webp') }}">
         </div>
       </div>
       <div class="player1">
@@ -288,7 +305,7 @@
     { value: '风平浪静', power: '无特殊技能' },
     { value: '风平浪静', power: '无特殊技能' },
     { value: '风平浪静', power: '无特殊技能' },
-    { value: '断粮', power: '食物和‎水各损失两个' },
+    { value: '断粮', power: '食物和水各损失两个' },
     { value: '风平浪静', power: '无特殊技能' },
     { value: '天有不测风云', power: '取出一整叠货物' },
     { value: '天有不测风云', power: '取出一整叠货物' },
@@ -498,18 +515,17 @@
       const drawnCard = customDeck[currentIndex];
       const cardElement = document.getElementById('drawn-card');
 
-      // Apply the "flash" class to trigger the animation
-      cardElement.classList.add('flash');
+      // Apply the "flipped" class to the card to trigger the flip animation
+      cardElement.classList.add('flipped');
 
-      document.getElementById('card-value').textContent = drawnCard.value;
-      document.getElementById('card-power').textContent = drawnCard.power;
+      setTimeout(() => {
+        document.getElementById('card-value').textContent = drawnCard.value;
+        document.getElementById('card-power').textContent = drawnCard.power;
+        cardElement.classList.remove('flipped');
+      }, 500); // Remove the "flipped" class after half a second to complete the flip animation
 
       secureShuffleDeck(customDeck);
       currentIndex = (currentIndex + 1) % customDeck.length;
-
-      setTimeout(() => {
-        cardElement.classList.remove('flash');
-      }, 1000);
     } else {
       document.getElementById('card-value').textContent = '牌被摸完了……';
       document.getElementById('card-power').textContent = '游戏结束……';
