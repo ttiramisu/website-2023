@@ -51,10 +51,6 @@ def design():
 def rule():
      return render_template('rule.html')
 
-@app.route('/about/coming-soon')
-def coming_soon():
-    return render_template('coming-soon.html')
-
 @app.route('/test')
 def test():
      return render_template('test.html')
