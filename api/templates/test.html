@@ -82,6 +82,24 @@
     grid-row: 3;
     grid-column: 3;
   }
+
+  .flash {
+    animation: flashAnimation 1s infinite;
+  }
+
+  @keyframes flashAnimation {
+
+    0%,
+    50%,
+    100% {
+      opacity: 1;
+    }
+
+    25%,
+    75% {
+      opacity: 0;
+    }
+  }
 </style>
 
 <div class="container py-5">
@@ -226,15 +244,23 @@
   function drawCard() {
     if (customDeck.length > 0) {
       const drawnCard = customDeck[currentIndex];
+      const cardElement = document.getElementById('drawn-card');
+
+      // Apply the "flash" class to trigger the animation
+      cardElement.classList.add('flash');
+
       document.getElementById('card-value').textContent = drawnCard.value;
       document.getElementById('card-power').textContent = drawnCard.power;
 
-      // Move to the next card in the circular queue
+      secureShuffleDeck(customDeck);
       currentIndex = (currentIndex + 1) % customDeck.length;
 
+      setTimeout(() => {
+        cardElement.classList.remove('flash');
+      }, 1000);
     } else {
-      document.getElementById('card-value').textContent = 'Deck is empty';
-      document.getElementById('card-power').textContent = '';
+      document.getElementById('card-value').textContent = '牌被摸完了……';
+      document.getElementById('card-power').textContent = '游戏结束……';
     }
   }
 
