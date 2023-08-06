@@ -1,0 +1,550 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+  .stuff {
+    margin-top: 2rem;
+  }
+
+  .--card {
+    width: 240px;
+    height: 150px;
+    background-color: #f1f1f1;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  }
+
+  .card-value {
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .card-power {
+    font-size: 18px;
+    font-style: italic;
+  }
+
+  .game-container {
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 100px 200px 100px; */
+    justify-items: center;
+    align-items: center;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .column {
+    flex-direction: column;
+  }
+
+  .gap {
+    gap: 20px;
+  }
+
+  .player {
+    width: 5rem;
+    height: 5rem;
+    border: 3.5px solid black;
+    border-radius: 50%;
+  }
+
+  .player1 {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .player2 {
+    grid-row: 1;
+    grid-column: 3;
+  }
+
+  .player3 {
+    grid-row: 3;
+    grid-column: 1;
+  }
+
+  .player4 {
+    grid-row: 3;
+    grid-column: 3;
+  }
+
+  .--card.flipped {
+    transform: rotateX(180deg);
+  }
+
+  .card-front,
+  .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .card-front {
+    z-index: 2;
+  }
+
+  .card-back {
+    transform: rotateX(180deg);
+    z-index: 1;
+    /* Add any specific styles for the back face of the card */
+    background-color: #4caf50;
+    color: white;
+    /* Center the image in the back face */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .add-minus {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+</style>
+
+<div class="container py-5">
+  <div class="flex stuff">
+    <div class="grid">
+      <div class="game-container">
+        <div class="--card" id="drawn-card">
+          <div class="card-front">
+            <div class="card-value" id="card-value">请按摸牌按钮</div>
+            <div class="card-power" id="card-power">开始游戏</div>
+          </div>
+        </div>
+        <!-- <div class="card-back">
+          <img src="https://pw-silkroad.vercel.app/title/android-icon-192x192.png" alt="">
+        </div> -->
+      </div>
+      <div class="player1">
+        <div class="flex gap">
+          <div class="flex column">
+            <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="" class="player">
+            <h1>玩家一</h1>
+          </div>
+          <div class="flex column">
+            <div>黄金：
+              <span class="gold">10</span>
+              <button class="add-minus" data-player="1" data-type="gold" data-action="add">+</button>
+              <button class="add-minus" data-player="1" data-type="gold" data-action="minus">-</button>
+            </div>
+            <div>白银：
+              <span class="silver">10</span>
+              <button class="add-minus" data-player="1" data-type="silver" data-action="add">+</button>
+              <button class="add-minus" data-player="1" data-type="silver" data-action="minus">-</button>
+            </div>
+            <div>食物：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="1" data-type="food" data-action="add">+</button>
+              <button class="add-minus" data-player="1" data-type="food" data-action="minus">-</button>
+            </div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;水：
+              <span class="water">10</span>
+              <button class="add-minus" data-player="1" data-type="water" data-action="add">+</button>
+              <button class="add-minus" data-player="1" data-type="water" data-action="minus">-</button>
+            </div>
+            <div>武器：<span class="weapon-1">Type</span></div>
+            <div>防具：<span class="defense-1">Type</span></div>
+            <div>运输：<span class="transport-1">Type</span></div>
+          </div>
+        </div>
+        <div class="flex">
+          <button class="draw-button btn btn-main">摸牌</button>
+        </div>
+      </div>
+      <div class="player2">
+        <div class="flex gap">
+          <div class="flex column">
+            <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="" class="player">
+            <h1>玩家二</h1>
+          </div>
+          <div class="flex column">
+            <div>黄金：
+              <span class="gold">10</span>
+              <button class="add-minus" data-player="2" data-type="gold" data-action="add">+</button>
+              <button class="add-minus" data-player="2" data-type="gold" data-action="minus">-</button>
+            </div>
+            <div>白银：
+              <span class="silver">10</span>
+              <button class="add-minus" data-player="2" data-type="silver" data-action="add">+</button>
+              <button class="add-minus" data-player="2" data-type="silver" data-action="minus">-</button>
+            </div>
+            <div>食物：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="2" data-type="food" data-action="add">+</button>
+              <button class="add-minus" data-player="2" data-type="food" data-action="minus">-</button>
+            </div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;水：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="2" data-type="water" data-action="add">+</button>
+              <button class="add-minus" data-player="2" data-type="water" data-action="minus">-</button>
+            </div>
+            <div>武器：<span class="weapon-1">Type</span></div>
+            <div>防具：<span class="defense-1">Type</span></div>
+            <div>运输：<span class="transport-1">Type</span></div>
+          </div>
+        </div>
+        <div class="flex">
+          <button class="draw-button btn btn-main">摸牌</button>
+        </div>
+      </div>
+      <div class="player3">
+        <div class="flex gap">
+          <div class="flex column">
+            <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="" class="player">
+            <h1>玩家三</h1>
+          </div>
+          <div class="flex column">
+            <div>黄金：
+              <span class="gold">10</span>
+              <button class="add-minus" data-player="3" data-type="gold" data-action="add">+</button>
+              <button class="add-minus" data-player="3" data-type="gold" data-action="minus">-</button>
+            </div>
+            <div>白银：
+              <span class="silver">10</span>
+              <button class="add-minus" data-player="3" data-type="silver" data-action="add">+</button>
+              <button class="add-minus" data-player="3" data-type="silver" data-action="minus">-</button>
+            </div>
+            <div>食物：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="3" data-type="food" data-action="add">+</button>
+              <button class="add-minus" data-player="3" data-type="food" data-action="minus">-</button>
+            </div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;水：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="3" data-type="water" data-action="add">+</button>
+              <button class="add-minus" data-player="3" data-type="water" data-action="minus">-</button>
+            </div>
+            <div>武器：<span class="weapon-1">Type</span></div>
+            <div>防具：<span class="defense-1">Type</span></div>
+            <div>运输：<span class="transport-1">Type</span></div>
+          </div>
+        </div>
+        <div class="flex">
+          <button class="draw-button btn btn-main">摸牌</button>
+        </div>
+      </div>
+      <div class="player4">
+        <div class="flex gap">
+          <div class="flex column">
+            <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="" class="player">
+            <h1>玩家四</h1>
+          </div>
+          <div class="flex column">
+            <div>黄金：
+              <span class="gold">10</span>
+              <button class="add-minus" data-player="4" data-type="gold" data-action="add">+</button>
+              <button class="add-minus" data-player="4" data-type="gold" data-action="minus">-</button>
+            </div>
+            <div>白银：
+              <span class="silver">10</span>
+              <button class="add-minus" data-player="4" data-type="silver" data-action="add">+</button>
+              <button class="add-minus" data-player="4" data-type="silver" data-action="minus">-</button>
+            </div>
+            <div>食物：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="4" data-type="food" data-action="add">+</button>
+              <button class="add-minus" data-player="4" data-type="food" data-action="minus">-</button>
+            </div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;水：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="4" data-type="water" data-action="add">+</button>
+              <button class="add-minus" data-player="4" data-type="water" data-action="minus">-</button>
+            </div>
+            <div>武器：<span class="weapon-1">Type</span></div>
+            <div>防具：<span class="defense-1">Type</span></div>
+            <div>运输：<span class="transport-1">Type</span></div>
+          </div>
+        </div>
+        <div class="flex">
+          <button class="draw-button btn btn-main">摸牌</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const customDeck = [
+    { value: '遍地黄金', power: '+2黄金' },
+    { value: '遍地黄金', power: '+2黄金' },
+    { value: '遍地黄金', power: '+2黄金' },
+    { value: '飞天炸弹', power: '受到对方武器远程攻击' },
+    { value: '顿悟', power: '唤醒角色觉醒技能' },
+    { value: '顿悟', power: '唤醒角色觉醒技能' },
+    { value: '顿悟', power: '唤醒角色觉醒技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '飞天炸弹', power: '受到对方武器远程攻击' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '断粮', power: '食物和水各损失两个' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '天有不测风云', power: '取出一整叠货物' },
+    { value: '天有不测风云', power: '取出一整叠货物' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '断粮', power: '食物和水各损失两个' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '皇帝驾崩', power: '回到起点' },
+    { value: '皇帝驾崩', power: '回到起点' },
+    { value: '飞天炸弹', power: '受到对方武器远程攻击' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '劫匪来临', power: '损失两个货物和两个金币' },
+    { value: '劫匪来临', power: '损失两个货物和两个金币' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '内部矛盾', power: '减去一个保镖' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '内部矛盾', power: '减去一个保镖' },
+    { value: '断粮', power: '食物和水各损失两个' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '天有不测风云', power: '取出一整叠货物' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '断粮', power: '食物和水各损失两个' },
+    { value: '劫匪来临', power: '损失两个货物和两个金币' },
+    { value: '加餐', power: '+2食物' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '劫匪来临', power: '损失两个货物和两个金币' },
+    { value: '量子穿越', power: '穿越到地图上任意地点' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '飞天炸弹', power: '受到对方武器远程攻击' },
+    { value: '加餐', power: '+2食物' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '沙漠中的水源', power: '+2水' },
+    { value: '断粮', power: '食物和水各损失两个' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '断粮', power: '食物和水各损失两个' },
+    { value: '量子穿越', power: '穿越到地图上任意地点' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '皇帝驾崩', power: '回到起点' },
+    { value: '皇帝驾崩', power: '回到起点' },
+    { value: '飞天炸弹', power: '受到对方武器远程攻击' },
+    { value: '劫匪来临', power: '损失两个货物和两个金币' },
+    { value: '劫匪来临', power: '损失两个货物和两个金币' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '风平浪静', power: '无特殊技能' },
+    { value: '铁匠优惠', power: '此回合所有武器与防具半价' },
+    { value: '加餐', power: '+2食物' },
+    { value: '沙漠中的水源', power: '+2水' },
+    { value: '沙漠中的水源', power: '+2水' },
+  ];
+
+  // Function to generate a cryptographically secure random integer in a specified range
+  function secureRandomInRange(min, max) {
+    const range = max - min + 1;
+    const byteArray = new Uint8Array(range);
+    let maxValid = 256 - (256 % range);
+
+    // Rejection sampling to get random integer within the range
+    let randomValue;
+    do {
+      window.crypto.getRandomValues(byteArray);
+      randomValue = byteArray[0];
+    } while (randomValue >= maxValid);
+
+    return min + (randomValue % range);
+  }
+
+  function resetCoin() {
+    const goldElements = document.querySelectorAll('.gold');
+    const silverElements = document.querySelectorAll('.silver');
+
+    goldElements.forEach((element) => {
+      element.textContent = '10';
+    });
+
+    silverElements.forEach((element) => {
+      element.textContent = '10';
+    });
+  }
+
+  // Function to update the gold and silver values for a player
+  function updateCoin(playerId, type, action) {
+    const element = document.querySelector(`.player${playerId} .${type}`);
+    let value = parseInt(element.textContent);
+
+    if (action === 'add') {
+      value += 1;
+    } else if (action === 'minus') {
+      value -= 1;
+    }
+
+    if (value < 0) value = 0;
+
+    element.textContent = value.toString();
+  }
+
+  // Add event listeners to the plus and minus buttons for each player
+  const plusButtons = document.querySelectorAll('.add-minus[id$="+"]');
+  const minusButtons = document.querySelectorAll('.add-minus[id$="-"]');
+  const plusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="add"]');
+  const minusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="minus"]');
+  const plusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="add"]');
+  const minusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="minus"]');
+
+  plusButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'add';
+      updateFoodWater(playerId, type, action);
+    });
+  });
+
+  minusButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'minus';
+      updateFoodWater(playerId, type, action);
+    });
+  });
+
+  function updateFoodWater(playerId, type, action) {
+    const element = document.querySelector(`.player${playerId} .${type}`);
+    let value = parseInt(element.textContent);
+
+    if (action === 'add') {
+      value += 1;
+    } else if (action === 'minus') {
+      value -= 1;
+    }
+
+    if (value < 0) value = 0;
+
+    element.textContent = value.toString();
+  }
+
+  plusButtonsFood.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'add';
+      updateFoodWater(playerId, type, action);
+    });
+  });
+
+  minusButtonsFood.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'minus';
+      updateFoodWater(playerId, type, action);
+    });
+  });
+
+  plusButtonsWater.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'add';
+      updateFoodWater(playerId, type, action);
+    });
+  });
+
+  minusButtonsWater.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'minus';
+      updateFoodWater(playerId, type, action);
+    });
+  });
+
+  // Fisher-Yates cryptographically secure shuffle
+  function secureShuffleDeck(deck) {
+    for (let i = deck.length - 1; i > 0; i--) {
+      const j = secureRandomInRange(0, i);
+      [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+  }
+
+  let currentIndex = 0; // Keep track of the current card index in the circular queue
+
+  function drawCard() {
+    if (customDeck.length > 0) {
+      const drawnCard = customDeck[currentIndex];
+      const cardElement = document.getElementById('drawn-card');
+
+      // Apply the "flipped" class to the card to trigger the flip animation
+      cardElement.classList.add('flipped');
+
+      setTimeout(() => {
+        document.getElementById('card-value').textContent = drawnCard.value;
+        document.getElementById('card-power').textContent = drawnCard.power;
+        cardElement.classList.remove('flipped');
+      }, 500); // Remove the "flipped" class after half a second to complete the flip animation
+
+      secureShuffleDeck(customDeck);
+      currentIndex = (currentIndex + 1) % customDeck.length;
+    } else {
+      document.getElementById('card-value').textContent = '牌被摸完了……';
+      document.getElementById('card-power').textContent = '游戏结束……';
+    }
+  }
+
+  secureShuffleDeck(customDeck);
+  resetCoin();
+
+  const drawButtons = document.getElementsByClassName('draw-button');
+  for (let i = 0; i < drawButtons.length; i++) {
+    drawButtons[i].addEventListener('click', drawCard);
+  }
+</script>
+
+{% endblock %}
