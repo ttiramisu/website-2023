@@ -19,10 +19,12 @@
     justify-content: center;
     align-items: center;
     font-size: 24px;
+    text-align: center;
   }
 
   .card-value {
     margin-bottom: 5px;
+    text-align: center;
   }
 
   .card-power {
@@ -87,8 +89,8 @@
     <div class="grid">
       <div class="game-container">
         <div class="card" id="drawn-card">
-          <div class="card-value" id="card-value">请按摸牌按钮开始游戏</div>
-          <div class="card-power" id="card-power"></div>
+          <div class="card-value" id="card-value">请按摸牌按钮</div>
+          <div class="card-power" id="card-power">开始游戏</div>
         </div>
       </div>
       <div class="player1">
@@ -126,27 +128,73 @@
 <script>
   const customDeck = [
     { value: '天有不测风云', power: '取出一整叠货物' },
+    { value: '天有不测风云', power: '取出一整叠货物' },
+    { value: '天有不测风云', power: '取出一整叠货物' },
+    { value: '天有不测风云', power: '取出一整叠货物' },
+    { value: '遍地黄金', power: '+2黄金' },
+    { value: '遍地黄金', power: '+2黄金' },
     { value: '遍地黄金', power: '+2黄金' },
     { value: '飞天炸弹', power: '受到对方武器远程攻击' },
+    { value: '飞天炸弹', power: '受到对方武器远程攻击' },
+    { value: '飞天炸弹', power: '受到对方武器远程攻击' },
+    { value: '内部矛盾', power: '减去一个保镖' },
     { value: '内部矛盾', power: '减去一个保镖' },
     { value: '皇帝驾崩', power: '回到起点' },
+    { value: '皇帝驾崩', power: '回到起点' },
+    { value: '皇帝驾崩', power: '回到起点' },
+    { value: '皇帝驾崩', power: '回到起点' },
+    { value: '皇帝驾崩', power: '回到起点' },
+    { value: '飞天炸弹', power: '受到对方武器远程攻击' },
+    { value: '劫匪来临', power: '损失两个货物和两个金币' },
+    { value: '劫匪来临', power: '损失两个货物和两个金币' },
     { value: '劫匪来临', power: '损失两个货物和两个金币' },
     { value: '断粮', power: '食物和水各损失两个' },
     { value: '量子穿越', power: '穿越到地图上任意地点' },
+    { value: '量子穿越', power: '穿越到地图上任意地点' },
     { value: '顿悟', power: '唤醒角色觉醒技能' },
-    // { value: '10', power: 'Special Power 10' },
-    // { value: '1sad', power: 'Special Power 1' },
-    // { value: '2sda', power: 'Special Power 2' },
-    // { value: '323', power: 'Special Power 3' },
-    // { value: '4qwe', power: 'Special Power 4' },
-    // { value: '45', power: 'Special Power 45', },
-    // { value: '4qw', power: 'Special Power 44' },
-    // { value: '443', power: 'Special Power 4324' },
-    // { value: '42', power: 'Special Power 4' },
-    // { value: '4wqe', power: 'Special Power 4eq' },
-    // { value: '4ewr', power: 'Special Power 4qewq' },
-
-    // Add more cards with their respective values, powers, and image URLs
+    { value: '顿悟', power: '唤醒角色觉醒技能' },
+    { value: '顿悟', power: '唤醒角色觉醒技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '普通卡牌', power: '无特殊技能' },
+    { value: '加餐', power: '+2食物' },
+    { value: '加餐', power: '+2食物' },
+    { value: '加餐', power: '+2食物' },
+    { value: '加餐', power: '+2食物' },
+    { value: '加餐', power: '+2食物' },
+    { value: '沙漠中的水源', power: '+2水' },
+    { value: '沙漠中的水源', power: '+2水' },
+    { value: '沙漠中的水源', power: '+2水' },
+    { value: '沙漠中的水源', power: '+2水' },
+    { value: '沙漠中的水源', power: '+2水' },
   ];
 
   // Function to generate a cryptographically secure random integer in a specified range
