@@ -439,7 +439,7 @@
 
   // Function to update the gold and silver values for a player
   function updateCoin(playerId, type, action) {
-    const element = document.querySelector(`.player${playerId} .${type}`);
+    const element = document.querySelectorAll(`.player${playerId} .${type}`);
     let value = parseInt(element.textContent);
 
     if (action === 'add') {
@@ -454,7 +454,7 @@
   }
 
   function updateFoodWater(playerId, type, action) {
-    const element = document.querySelector(`.player${playerId} .${type}`);
+    const element = document.querySelectorAll(`.player${playerId} .${type}`);
     if (element) {
       let value = parseInt(element.textContent);
 
