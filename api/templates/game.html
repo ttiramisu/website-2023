@@ -154,8 +154,8 @@
           <div class="flex column">
             <div>黄金：
               <span class="gold">10</span>
-              <button class="add-minus" data-player="1" data-type="gold" data-action="add">+</button>
               <button class="add-minus" data-player="1" data-type="gold" data-action="minus">-</button>
+              <button class="add-minus" data-player="1" data-type="gold" data-action="add">+</button>
             </div>
             <div>白银：
               <span class="silver">10</span>
@@ -427,6 +427,14 @@
     });
   }
 
+  // Add event listeners to the plus and minus buttons for each player
+  const plusButtons = document.querySelectorAll('.add-minus[id$="+"]');
+  const minusButtons = document.querySelectorAll('.add-minus[id$="-"]');
+  const plusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="add"]');
+  const minusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="minus"]');
+  const plusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="add"]');
+  const minusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="minus"]');
+
   // Function to update the gold and silver values for a player
   function updateCoin(playerId, type, action) {
     const element = document.querySelector(`.player${playerId} .${type}`);
@@ -443,32 +451,6 @@
     element.textContent = value.toString();
   }
 
-  // Add event listeners to the plus and minus buttons for each player
-  const plusButtons = document.querySelectorAll('.add-minus[id$="+"]');
-  const minusButtons = document.querySelectorAll('.add-minus[id$="-"]');
-  const plusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="add"]');
-  const minusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="minus"]');
-  const plusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="add"]');
-  const minusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="minus"]');
-
-  plusButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const playerId = button.dataset.player;
-      const type = button.dataset.type;
-      const action = 'add';
-      updateFoodWater(playerId, type, action);
-    });
-  });
-
-  minusButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const playerId = button.dataset.player;
-      const type = button.dataset.type;
-      const action = 'minus';
-      updateFoodWater(playerId, type, action);
-    });
-  });
-
   function updateFoodWater(playerId, type, action) {
     const element = document.querySelector(`.player${playerId} .${type}`);
     let value = parseInt(element.textContent);
@@ -483,6 +465,24 @@
 
     element.textContent = value.toString();
   }
+
+  plusButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'add';
+      updateCoin(playerId, type, action);
+    });
+  });
+
+  minusButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'minus';
+      updateCoin(playerId, type, action);
+    });
+  });
 
   plusButtonsFood.forEach((button) => {
     button.addEventListener('click', () => {
