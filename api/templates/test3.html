@@ -1,13 +1,9 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
 <style>
   .stuff {
     margin-top: 2rem;
   }
 
-  .card {
+  .--card {
     width: 240px;
     height: 150px;
     background-color: #f1f1f1;
@@ -97,6 +93,11 @@
     border-radius: 50%;
   }
 
+  .progress-bar-container {
+    display: flex;
+    align-items: center;
+  }
+
   @keyframes flashAnimation {
 
     0%,
@@ -110,19 +111,13 @@
       opacity: 0;
     }
   }
-
-  .flex-inline {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
 </style>
 
 <div class="container py-5">
   <div class="flex stuff">
     <div class="grid">
       <div class="game-container">
-        <div class="card" id="drawn-card">
+        <div class="--card" id="drawn-card">
           <div class="card-value" id="card-value">请按摸牌按钮</div>
           <div class="card-power" id="card-power">开始游戏</div>
         </div>
@@ -136,13 +131,23 @@
           <div class="flex column">
             <div>黄金：
               <span class="gold">10</span>
-              <button class="add-minus flex-inline" data-player="1" data-type="gold" data-action="add">+</button>
-              <button class="add-minus flex-inline" data-player="1" data-type="gold" data-action="minus">-</button>
+              <button class="add-minus" data-player="1" data-type="gold" data-action="add">+</button>
+              <button class="add-minus" data-player="1" data-type="gold" data-action="minus">-</button>
             </div>
             <div>白银：
               <span class="silver">10</span>
-              <button class="add-minus flex-inline" data-player="1" data-type="silver" data-action="add">+</button>
-              <button class="add-minus flex-inline" data-player="1" data-type="silver" data-action="minus">-</button>
+              <button class="add-minus" data-player="1" data-type="silver" data-action="add">+</button>
+              <button class="add-minus" data-player="1" data-type="silver" data-action="minus">-</button>
+            </div>
+            <div>食物：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="1" data-type="food" data-action="add">+</button>
+              <button class="add-minus" data-player="1" data-type="food" data-action="minus">-</button>
+            </div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;水：
+              <span class="water">10</span>
+              <button class="add-minus" data-player="1" data-type="water" data-action="add">+</button>
+              <button class="add-minus" data-player="1" data-type="water" data-action="minus">-</button>
             </div>
             <div>武器：<span class="weapon-1">Type</span></div>
             <div>防具：<span class="defense-1">Type</span></div>
@@ -162,13 +167,23 @@
           <div class="flex column">
             <div>黄金：
               <span class="gold">10</span>
-              <button class="add-minus flex-inline" data-player="2" data-type="gold" data-action="add">+</button>
-              <button class="add-minus flex-inline" data-player="2" data-type="gold" data-action="minus">-</button>
+              <button class="add-minus" data-player="2" data-type="gold" data-action="add">+</button>
+              <button class="add-minus" data-player="2" data-type="gold" data-action="minus">-</button>
             </div>
             <div>白银：
               <span class="silver">10</span>
-              <button class="add-minus flex-inline" data-player="2" data-type="silver" data-action="add">+</button>
-              <button class="add-minus flex-inline" data-player="2" data-type="silver" data-action="minus">-</button>
+              <button class="add-minus" data-player="2" data-type="silver" data-action="add">+</button>
+              <button class="add-minus" data-player="2" data-type="silver" data-action="minus">-</button>
+            </div>
+            <div>食物：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="2" data-type="food" data-action="add">+</button>
+              <button class="add-minus" data-player="2" data-type="food" data-action="minus">-</button>
+            </div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;水：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="2" data-type="water" data-action="add">+</button>
+              <button class="add-minus" data-player="2" data-type="water" data-action="minus">-</button>
             </div>
             <div>武器：<span class="weapon-1">Type</span></div>
             <div>防具：<span class="defense-1">Type</span></div>
@@ -188,13 +203,23 @@
           <div class="flex column">
             <div>黄金：
               <span class="gold">10</span>
-              <button class="add-minus flex-inline" data-player="3" data-type="gold" data-action="add">+</button>
-              <button class="add-minus flex-inline" data-player="3" data-type="gold" data-action="minus">-</button>
+              <button class="add-minus" data-player="3" data-type="gold" data-action="add">+</button>
+              <button class="add-minus" data-player="3" data-type="gold" data-action="minus">-</button>
             </div>
             <div>白银：
               <span class="silver">10</span>
-              <button class="add-minus flex-inline" data-player="3" data-type="silver" data-action="add">+</button>
-              <button class="add-minus flex-inline" data-player="3" data-type="silver" data-action="minus">-</button>
+              <button class="add-minus" data-player="3" data-type="silver" data-action="add">+</button>
+              <button class="add-minus" data-player="3" data-type="silver" data-action="minus">-</button>
+            </div>
+            <div>食物：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="3" data-type="food" data-action="add">+</button>
+              <button class="add-minus" data-player="3" data-type="food" data-action="minus">-</button>
+            </div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;水：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="3" data-type="water" data-action="add">+</button>
+              <button class="add-minus" data-player="3" data-type="water" data-action="minus">-</button>
             </div>
             <div>武器：<span class="weapon-1">Type</span></div>
             <div>防具：<span class="defense-1">Type</span></div>
@@ -214,13 +239,23 @@
           <div class="flex column">
             <div>黄金：
               <span class="gold">10</span>
-              <button class="add-minus flex-inline" data-player="4" data-type="gold" data-action="add">+</button>
-              <button class="add-minus flex-inline" data-player="4" data-type="gold" data-action="minus">-</button>
+              <button class="add-minus" data-player="4" data-type="gold" data-action="add">+</button>
+              <button class="add-minus" data-player="4" data-type="gold" data-action="minus">-</button>
             </div>
             <div>白银：
               <span class="silver">10</span>
-              <button class="add-minus flex-inline" data-player="4" data-type="silver" data-action="add">+</button>
-              <button class="add-minus flex-inline" data-player="4" data-type="silver" data-action="minus">-</button>
+              <button class="add-minus" data-player="4" data-type="silver" data-action="add">+</button>
+              <button class="add-minus" data-player="4" data-type="silver" data-action="minus">-</button>
+            </div>
+            <div>食物：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="4" data-type="food" data-action="add">+</button>
+              <button class="add-minus" data-player="4" data-type="food" data-action="minus">-</button>
+            </div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;水：
+              <span class="food">10</span>
+              <button class="add-minus" data-player="4" data-type="water" data-action="add">+</button>
+              <button class="add-minus" data-player="4" data-type="water" data-action="minus">-</button>
             </div>
             <div>武器：<span class="weapon-1">Type</span></div>
             <div>防具：<span class="defense-1">Type</span></div>
@@ -253,7 +288,7 @@
     { value: '风平浪静', power: '无特殊技能' },
     { value: '风平浪静', power: '无特殊技能' },
     { value: '风平浪静', power: '无特殊技能' },
-    { value: '断粮', power: '食物和水各损失两个' },
+    { value: '断粮', power: '食物和‎水各损失两个' },
     { value: '风平浪静', power: '无特殊技能' },
     { value: '天有不测风云', power: '取出一整叠货物' },
     { value: '天有不测风云', power: '取出一整叠货物' },
@@ -372,31 +407,79 @@
   }
 
   // Add event listeners to the plus and minus buttons for each player
-  const plusMinusButtons = document.querySelectorAll('.add-minus');
-  plusMinusButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const playerId = button.dataset.player;
-      const type = button.dataset.type;
-      const action = button.dataset.action;
-      updateCoin(playerId, type, action);
-    });
-  });
-
-  // Add event listeners to the plus and minus buttons for each player
   const plusButtons = document.querySelectorAll('.add-minus[id$="+"]');
   const minusButtons = document.querySelectorAll('.add-minus[id$="-"]');
+  const plusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="add"]');
+  const minusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="minus"]');
+  const plusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="add"]');
+  const minusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="minus"]');
 
   plusButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      const playerId = button.id.slice(5); // Extract the player ID from the button ID
-      updateCoin(`player${playerId}`, '+');
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'add';
+      updateFoodWater(playerId, type, action);
     });
   });
 
   minusButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      const playerId = button.id.slice(5); // Extract the player ID from the button ID
-      updateCoin(`player${playerId}`, '-');
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'minus';
+      updateFoodWater(playerId, type, action);
+    });
+  });
+
+  function updateFoodWater(playerId, type, action) {
+    const element = document.querySelector(`.player${playerId} .${type}`);
+    let value = parseInt(element.textContent);
+
+    if (action === 'add') {
+      value += 1;
+    } else if (action === 'minus') {
+      value -= 1;
+    }
+
+    if (value < 0) value = 0;
+
+    element.textContent = value.toString();
+  }
+
+  plusButtonsFood.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'add';
+      updateFoodWater(playerId, type, action);
+    });
+  });
+
+  minusButtonsFood.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'minus';
+      updateFoodWater(playerId, type, action);
+    });
+  });
+
+  plusButtonsWater.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'add';
+      updateFoodWater(playerId, type, action);
+    });
+  });
+
+  minusButtonsWater.forEach((button) => {
+    button.addEventListener('click', () => {
+      const playerId = button.dataset.player;
+      const type = button.dataset.type;
+      const action = 'minus';
+      updateFoodWater(playerId, type, action);
     });
   });
 
@@ -441,5 +524,3 @@
     drawButtons[i].addEventListener('click', drawCard);
   }
 </script>
-
-{% endblock %}
