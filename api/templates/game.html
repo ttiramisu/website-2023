@@ -129,7 +129,28 @@
     height: 24px;
     border-radius: 50%;
   }
+
+  .grey-box {
+    background-color: grey;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+
+  @media (max-width: 991px) {
+    .grey-box {
+      display: block;
+    }
+  }
 </style>
+
+<div class="grey-box">
+  <p>This is a grey box shown on screens below 992px.</p>
+</div>
 
 <div class="container py-5">
   <div class="flex stuff">
