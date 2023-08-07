@@ -50,6 +50,9 @@ def reference():
 ###############################
 ############ GAME #############
 ###############################
+@app.route('/game/selection')
+def game_selection():
+     return render_template('game-selection.html')
 
 @app.route('/game/2-player')
 def game_2_player():
