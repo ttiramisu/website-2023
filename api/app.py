@@ -19,6 +19,10 @@ def about():
 def policy():
     return render_template('policy.html')
 
+###############################
+############ INFO #############
+###############################
+
 @app.route('/silkroad/')
 def silkroad_about():
     return render_template('about-silkroad.html')
@@ -35,13 +39,29 @@ def silkroad_map():
 def silkroad_belt_road():
     return render_template('about-belt-road.html')
 
+###############################
+########### BULLY #############
+###############################
+
 @app.route('/reference')
 def reference():
     return render_template('reference.html')
 
-@app.route('/game')
-def game():
-     return render_template('game.html')
+###############################
+############ GAME #############
+###############################
+
+@app.route('/game/2-player')
+def game_2_player():
+     return render_template('game-2.html')
+
+@app.route('/game/3-player')
+def game_3_player():
+     return render_template('game-3.html')
+
+@app.route('/game/4-player')
+def game_4_player():
+     return render_template('game-4.html')
 
 @app.route('/game/role')
 def role():
@@ -54,6 +74,10 @@ def design():
 @app.route('/game/rules')
 def rule():
      return render_template('rule.html')
+
+###############################
+############ TEST #############
+###############################
 
 @app.route('/test')
 def test():
