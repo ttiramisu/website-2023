@@ -2,8 +2,33 @@
 
 {% block content %}
 
+<style>
+  .circles {
+    border: 3px solid black;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .circles>img {
+    width: 105px;
+    height: 105px;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .-gap {
+    gap: -20px;
+  }
+</style>
+
 <div class="container py-5">
-  <h1 class="display-4">请选择玩家数量</h1>
+  <h1 class="display-4">请选择玩家数量：</h1>
 </div>
 
 <div class="container py-5">
@@ -11,24 +36,24 @@
     <div class="col">
       <div class="card mb-4 rounded-3 shadow-sm">
         <div class="card-header py-3">
-          <h4 class="my-0 fw-normal">Free</h4>
+          <h4 class="my-0 fw-normal">双人</h4>
         </div>
         <div class="card-body">
-          <h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mo</small></h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>10 users included</li>
-            <li>2 GB of storage</li>
-            <li>Email support</li>
-            <li>Help center access</li>
-          </ul>
-          <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+          <div class="flex">
+            <div style="z-index: 999999;" class="circles flex">
+              <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png">
+            </div>
+            <div style="z-index: 99999; margin-left: -95px;" class="circles"></div>
+            <div style="z-index: 9999; margin-left: -95px;" class="circles"></div>
+            <div style="z-index: 999; margin-left: -95px;" class="circles"></div>
+          </div>
         </div>
       </div>
     </div>
     <div class="col">
       <div class="card mb-4 rounded-3 shadow-sm">
         <div class="card-header py-3">
-          <h4 class="my-0 fw-normal">Pro</h4>
+          <h4 class="my-0 fw-normal">三人</h4>
         </div>
         <div class="card-body">
           <h1 class="card-title pricing-card-title">$15<small class="text-body-secondary fw-light">/mo</small></h1>
@@ -45,7 +70,7 @@
     <div class="col">
       <div class="card mb-4 rounded-3 shadow-sm border-primary">
         <div class="card-header py-3 text-bg-primary border-primary">
-          <h4 class="my-0 fw-normal">Enterprise</h4>
+          <h4 class="my-0 fw-normal">四人</h4>
         </div>
         <div class="card-body">
           <h1 class="card-title pricing-card-title">$29<small class="text-body-secondary fw-light">/mo</small></h1>
