@@ -4,6 +4,30 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
 
+<style>
+  .player1 {
+    grid-row: 3;
+    grid-column: 1;
+  }
+
+  .player2 {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .player3 {
+    grid-row: 3;
+    grid-column: 3;
+  }
+
+  .game-container {
+    grid-row: 2;
+    grid-column: 2;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+</style>
+
 <div class="grey-box flex">
   <h1>请用平板电脑或电脑观看此页面</h1>
 </div>
@@ -120,42 +144,6 @@
               <span class="water">10</span>
               <button class="add-minus" data-player="3" data-type="water" data-action="add">+</button>
               <button class="add-minus" data-player="3" data-type="water" data-action="minus">-</button>
-            </div>
-            <div>武器：<span class="weapon-1">Type</span></div>
-            <div>防具：<span class="defense-1">Type</span></div>
-            <div>运输：<span class="transport-1">Type</span></div>
-          </div>
-        </div>
-        <div class="flex">
-          <button class="draw-button btn btn-main">摸牌</button>
-        </div>
-      </div>
-      <div class="player4 flex column gap">
-        <div class="flex gap">
-          <div class="flex column">
-            <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="" class="player">
-            <h1>玩家四</h1>
-          </div>
-          <div class="flex column">
-            <div>黄金：
-              <span class="gold">10</span>
-              <button class="add-minus" data-player="4" data-type="gold" data-action="add">+</button>
-              <button class="add-minus" data-player="4" data-type="gold" data-action="minus">-</button>
-            </div>
-            <div>白银：
-              <span class="silver">10</span>
-              <button class="add-minus" data-player="4" data-type="silver" data-action="add">+</button>
-              <button class="add-minus" data-player="4" data-type="silver" data-action="minus">-</button>
-            </div>
-            <div>食物：
-              <span class="food">10</span>
-              <button class="add-minus" data-player="4" data-type="food" data-action="add">+</button>
-              <button class="add-minus" data-player="4" data-type="food" data-action="minus">-</button>
-            </div>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;水：
-              <span class="water">10</span>
-              <button class="add-minus" data-player="4" data-type="water" data-action="add">+</button>
-              <button class="add-minus" data-player="4" data-type="water" data-action="minus">-</button>
             </div>
             <div>武器：<span class="weapon-1">Type</span></div>
             <div>防具：<span class="defense-1">Type</span></div>
