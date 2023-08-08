@@ -7,11 +7,48 @@
     <div class="row h-100 align-items-center py-5">
       <p class="text-muted lead">https://docs.google.com/document/d/1nsbWFDwBoQwyLgNq3ujmwrF-_xWQkmPoPpfZEk3mF_s/edit
       </p>
+
+      <div id="pdf-container">
+        <canvas id="pdf-canvas"></canvas>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- <div style="aspect-ratio: 1 / 1.41;">
-  <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
-</div> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+<script>
+  const pdfContainer = document.getElementById('pdf-container');
+  const pdfCanvas = document.getElementById('pdf-canvas');
+
+  let pdfDoc = null;
+  let pageNum = 1;
+  const scale = 1.5;
+
+  function renderPage(num) {
+    pdfDoc.getPage(num).then(page => {
+      const viewport = page.getViewport({ scale });
+      pdfCanvas.width = viewport.width;
+      pdfCanvas.height = viewport.height;
+
+      const context = pdfCanvas.getContext('2d');
+      const renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+
+      page.render(renderContext);
+    });
+  }
+
+  pdfjsLib.getDocument('https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf').promise.then(pdf => {
+    pdfDoc = pdf;
+    renderPage(pageNum);
+
+    // Update canvas height when window is resized
+    window.addEventListener('resize', () => {
+      renderPage(pageNum);
+    });
+  });
+
+</script>
 {% endblock %}
