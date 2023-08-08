@@ -40,7 +40,7 @@
     });
   }
 
-  pdfjsLib.getDocument('https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/web/compressed.tracemonkey-pldi-09.pdf').promise.then(pdf => {
+  pdfjsLib.getDocument('https://ibb.vercel.app/rules.pdf').promise.then(pdf => {
     pdfDoc = pdf;
     renderPage(pageNum);
 
