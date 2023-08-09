@@ -1,15 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<style>
-  #pdf-container {
-    width: 100%;
-    height: 500px;
-    /* Adjust the height as needed */
-    overflow: auto;
-  }
-</style>
-
 <div class="bg-body-tertiary">
   <div class="container py-5">
     <h1 class="display-4">游戏规则</h1>
@@ -28,36 +19,36 @@
 <script>
   const pdfContainer = document.getElementById('pdf-container');
 
-let pdfDoc = null;
-const scale = 1.5;
+  let pdfDoc = null;
+  const scale = 1.5;
 
-function renderPage(num) {
+  function renderPage(num) {
     pdfDoc.getPage(num).then(page => {
-        const viewport = page.getViewport({ scale });
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
-        canvas.width = viewport.width;
-        canvas.height = viewport.height;
+      const viewport = page.getViewport({ scale });
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
 
-        pdfContainer.innerHTML = ''; // Clear previous content
-        pdfContainer.appendChild(canvas);
+      const renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
 
-        const renderContext = {
-            canvasContext: context,
-            viewport: viewport
-        };
+      page.render(renderContext);
+      pdfContainer.appendChild(canvas);
 
-        page.render(renderContext);
+      if (num < pdfDoc.numPages) {
+        renderPage(num + 1);
+      }
     });
-}
+  }
 
-pdfjsLib.getDocument('https://ibb.vercel.app/rules.pdf').promise.then(pdf => {
+  pdfjsLib.getDocument('https://ibb.vercel.app/rules.pdf').promise.then(pdf => {
     pdfDoc = pdf;
+    renderPage(1);
+  });
 
-    for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
-        renderPage(pageNum);
-    }
-});
 
 </script>
 {% endblock %}
