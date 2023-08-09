@@ -1,6 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- MODALS -->
+<div class="modal fade" id="huoqubing" tabindex="-1" aria-labelledby="Modal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">人物背景</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://ibb.vercel.app/huoqubing.jpg" class="card-img-top rounded" alt="Responsive image">
+        <br><br>
+        实际上“丝绸之路”只是现代的一种叫法。在其悠长的历史中，这条古老的道路并没有一个确切的名字。十九世纪中期，德国地理学家费迪南·冯·李希霍芬，把这个商道命名为 Die
+        Seidenstrasse（丝绸之路），神秘且令人浮想联翩。丝绸之路从长安或洛阳出发，经过甘肃、新疆，到中亚、西亚、欧洲，并联结地中海各国的陆上通道。丝绸之路有大概六千四百公里长
+        人类历史在不断迁徙中发展，随之产生的是频繁的商品交换，以及技能和思想的交流。这样的通信与贸易之路在欧亚大陆上纵横交错，在历史上逐渐形成了我们今天所称的丝绸之路。
+        <br><br>
+        丝绸之路覆盖着路上和海上交通，来自各个地方的人们在此沿线进行着丝绸与其他商品的交易。最初丝绸之路是西汉时张骞出使西域开辟的以长安为起点，最远到达西亚诸国的陆上贸易通道，到东汉时班超再次出使西域打通了荒废已久的丝绸之路，并将路线东端延伸到东汉京师洛阳，西端延伸到欧洲(罗马)，这是目前完整的丝绸之路路线。
+        <br><br>
+        2014年6月22日，在杜哈举行的第38届的世界遗产委员会会议上，丝绸之路同京杭大运河一起，被联合国教科文组织列为世界遗产。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-main btn-light btn" data-bs-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>s
+<!-- MODALS -->
+
 
 <div class="py-5 bg-body-tertiary">
   <div class="container py-5">
@@ -18,7 +45,8 @@
           <div class="card-body">
             <p class="card-text">霍去病</p>
             <div class="d-flex justify-content-between align-items-center">
-              <button type="button" class="btn-main btn-light btn">人物背景</button>
+              <button type="button" class="btn-main btn-light btn" data-bs-toggle="modal"
+                data-bs-target="#huoqubing">人物背景</button>
             </div>
           </div>
         </div>
