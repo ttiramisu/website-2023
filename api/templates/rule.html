@@ -51,7 +51,7 @@ function renderPage(num) {
     });
 }
 
-pdfjsLib.getDocument('path/to/your/pdf.pdf').promise.then(pdf => {
+pdfjsLib.getDocument('https://ibb.vercel.app/rules.pdf').promise.then(pdf => {
     pdfDoc = pdf;
 
     for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
