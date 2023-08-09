@@ -26,43 +26,38 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
 <script>
-  const pdfCanvas = document.getElementById('pdf-canvas');
   const pdfContainer = document.getElementById('pdf-container');
 
-  let pdfDoc = null;
-  let pageNum = 1;
-  const scale = 1.5;
+let pdfDoc = null;
+const scale = 1.5;
 
-  function renderPage(num) {
+function renderPage(num) {
     pdfDoc.getPage(num).then(page => {
-      const viewport = page.getViewport({ scale });
-      pdfCanvas.width = viewport.width;
-      pdfCanvas.height = viewport.height;
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
 
-      const context = pdfCanvas.getContext('2d');
-      const renderContext = {
-        canvasContext: context,
-        viewport: viewport
-      };
+        pdfContainer.innerHTML = ''; // Clear previous content
+        pdfContainer.appendChild(canvas);
 
-      page.render(renderContext);
+        const renderContext = {
+            canvasContext: context,
+            viewport: viewport
+        };
+
+        page.render(renderContext);
     });
-  }
+}
 
-  pdfjsLib.getDocument('https://ibb.vercel.app/rules.pdf').promise.then(pdf => {
+pdfjsLib.getDocument('path/to/your/pdf.pdf').promise.then(pdf => {
     pdfDoc = pdf;
-    renderPage(pageNum);
 
-    // Listen for scroll events and update page number accordingly
-    pdfContainer.addEventListener('scroll', () => {
-      const scrollFraction = pdfContainer.scrollTop / (pdfContainer.scrollHeight - pdfContainer.clientHeight);
-      const desiredPage = Math.min(Math.ceil(scrollFraction * pdfDoc.numPages), pdfDoc.numPages);
-      if (pageNum !== desiredPage) {
-        pageNum = desiredPage;
+    for (let pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
         renderPage(pageNum);
-      }
-    });
-  });
+    }
+});
 
 </script>
 {% endblock %}
