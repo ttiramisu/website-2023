@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
 <div class="bg-body-tertiary">
   <div class="container py-5">
     <h1 class="display-4">游戏规则</h1>
@@ -13,7 +15,6 @@
 </div>
 
 <!-- <script src="{{ url_for('static', filename='js/script.js') }}" async></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js" async></script>
 <script>
   const pdfContainer = document.getElementById('pdf-container');
 
