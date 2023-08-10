@@ -166,7 +166,24 @@ function updateCoin(playerId, type, action) {
   element.textContent = value.toString();
 }
 
+// FOOD WATER
 function updateFoodWater(playerId, type, action) {
+  const element = document.querySelector(`.player${playerId} .${type}`);
+  let value = parseInt(element.textContent);
+
+  if (action === 'add') {
+    value += 1;
+  } else if (action === 'minus') {
+    value -= 1;
+  }
+
+  if (value < 0) value = 0;
+
+  element.textContent = value.toString();
+}
+
+// HEALTH
+function updateHealth(playerId, type, action) {
   const element = document.querySelector(`.player${playerId} .${type}`);
   let value = parseInt(element.textContent);
 
@@ -270,7 +287,7 @@ plusButtonsHealth.forEach((button) => {
     const playerId = button.dataset.player;
     const type = button.dataset.type;
     const action = 'add';
-    updateFoodWater(playerId, type, action);
+    updateHealth(playerId, type, action);
   });
 });
 
@@ -279,7 +296,7 @@ minusButtonsHealth.forEach((button) => {
     const playerId = button.dataset.player;
     const type = button.dataset.type;
     const action = 'minus';
-    updateFoodWater(playerId, type, action);
+    updateHealth(playerId, type, action);
   });
 });
 
