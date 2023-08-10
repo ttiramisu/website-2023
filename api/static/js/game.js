@@ -190,6 +190,8 @@ const plusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][
 const minusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="minus"]');
 const plusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="add"]');
 const minusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="minus"]');
+const plusButtonsHealth = document.querySelectorAll('.add-minus[data-type="health"][data-action="add"');
+const minusButtonsHealth = document.querySelectorAll('.add-minus[data-type="health"][data-action="minus"');
 
 plusButtonsGold.forEach((button) => {
   button.addEventListener('click', () => {
@@ -255,6 +257,24 @@ plusButtonsWater.forEach((button) => {
 });
 
 minusButtonsWater.forEach((button) => {
+  button.addEventListener('click', () => {
+    const playerId = button.dataset.player;
+    const type = button.dataset.type;
+    const action = 'minus';
+    updateFoodWater(playerId, type, action);
+  });
+});
+
+plusButtonsHealth.forEach((button) => {
+  button.addEventListener('click', () => {
+    const playerId = button.dataset.player;
+    const type = button.dataset.type;
+    const action = 'add';
+    updateFoodWater(playerId, type, action);
+  });
+});
+
+minusButtonsHealth.forEach((button) => {
   button.addEventListener('click', () => {
     const playerId = button.dataset.player;
     const type = button.dataset.type;
