@@ -150,22 +150,6 @@ function resetCoin() {
   });
 }
 
-// Function to update the gold and silver values for a player
-function updateCoin(playerId, type, action) {
-  const element = document.querySelector(`.player${playerId} .${type}`);
-  let value = parseInt(element.textContent);
-
-  if (action === 'add') {
-    value += 1;
-  } else if (action === 'minus') {
-    value -= 1;
-  }
-
-  if (value < 0) value = 0;
-
-  element.textContent = value.toString();
-}
-
 // FOOD WATER
 function updateFoodWater(playerId, type, action) {
   const element = document.querySelector(`.player${playerId} .${type}`);
@@ -199,10 +183,6 @@ function updateHealth(playerId, type, action) {
 }
 
 // Add event listeners to the plus and minus buttons for each player
-const plusButtonsGold = document.querySelectorAll('.add-minus[data-type="gold"][data-action="add"');
-const minusButtonsGold = document.querySelectorAll('.add-minus[data-type="gold"][data-action="minus"');
-const plusButtonsSilver = document.querySelectorAll('.add-minus[data-type="silver"][data-action="add"');
-const minusButtonsSilver = document.querySelectorAll('.add-minus[data-type="silver"][data-action="minus"');
 const plusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="add"]');
 const minusButtonsFood = document.querySelectorAll('.add-minus[data-type="food"][data-action="minus"]');
 const plusButtonsWater = document.querySelectorAll('.add-minus[data-type="water"][data-action="add"]');
