@@ -307,8 +307,8 @@ function drawCard() {
       cardElement.classList.remove('flipped');
     }, 500); // Remove the "flipped" class after half a second to complete the flip animation
 
-    secureShuffleDeck(customDeck);
     currentIndex = (currentIndex + 1) % customDeck.length;
+    secureShuffleDeck(customDeck);
   } else {
     document.getElementById('card-value').textContent = '牌被摸完了……';
     document.getElementById('card-power').textContent = '游戏结束……';
