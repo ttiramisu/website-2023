@@ -84,7 +84,7 @@ def rule():
 
 @app.route('/test')
 def test():
-     return render_template('test3.html')
+     return render_template('test2.html')
 
 ###############################
 ############ ERROR ############
