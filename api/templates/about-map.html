@@ -838,21 +838,20 @@
 
   let polyline3a = L.polyline(path3a, path3Options).addTo(map);
 
-  let path4 = [
+  let sea1 = [
     { lat: 24.874132, lng: 118.675676 },
-    { lat: 22.099882, lng: 113.79376},
-    { lat: 23.0513, lng: 113.4057},
-    { lat: 22.099882, lng: 113.79376},
-    { lat: 20.0763, lng: 110.31635},
-  ]
+    { lat: 22.154005830217642, lng: 117.72116399425198 },
+    { lat: 21.54916924484676, lng: 114.54190551200499 },
+    // { lat: 23.0513, lng: 113.4057, },
+  ];
 
-  let path4Options = {
+  let sea1Options = {
     color: "blue",
     weight: 3,
     opacity: 0.7,
-  }
+  };
 
-  let polyline4 = L.polyline(path4, path4Options).addTo(map);
+  let sea1line = L.polyline(sea1, sea1Options).addTo(map);
 </script>
 
 {% endblock %}
