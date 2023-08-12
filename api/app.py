@@ -70,10 +70,6 @@ def game_4_player():
 def role():
      return render_template('role.html')
 
-@app.route('/game/design')
-def design():
-     return render_template('design.html')
-
 @app.route('/game/rules')
 def rule():
      return render_template('rule.html')
