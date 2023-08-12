@@ -20,9 +20,9 @@ We are a group of students from Singapore who are doing research on the silk roa
 
 ## built with/hosted on
 
-* [Leaflet](https://leafletjs.com/) - Interactive map
+* [Flask](https://flask.palletsprojects.com/en/2.2.x/) - Python framework for easier allocation of routes
 * [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) - Bootstrap
-* [Flask](https://flask.palletsprojects.com/en/2.2.x/) - Python framework used to generate routes
+* [Leaflet](https://leafletjs.com/) - Interactive map
 * [Vercel](https://vercel.com/) - Web Hosting Provider
 
 ## authors
