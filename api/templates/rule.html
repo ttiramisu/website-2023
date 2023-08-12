@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script> -->
+<script src="{{ url_for('static', filename='js/pdf.js') }}" async></script>
 
 <div class="bg-body-tertiary">
   <div class="container py-5">
@@ -14,7 +15,6 @@
   </div>
 </div>
 
-<!-- <script src="{{ url_for('static', filename='js/script.js') }}" async></script> -->
 <script>
   const pdfContainer = document.getElementById('pdf-container');
 
