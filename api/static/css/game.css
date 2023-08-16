@@ -125,6 +125,10 @@
   border-radius: 50%;
 }
 
+.spanner {
+  margin-right: 2rem;
+}
+
 .grey-box {
   background-color: grey;
   padding: 20px;
