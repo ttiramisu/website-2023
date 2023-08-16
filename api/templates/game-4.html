@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+  .prices {
+    grid-row: 3;
+    grid-column: 2;
+  }
+</style>
 
 <link rel="stylesheet" href="https://ibb.vercel.app/cdn/game.css">
 
@@ -133,6 +139,31 @@
         <div class="flex">
           <button class="draw-button btn btn-main">摸牌</button>
         </div>
+      </div>
+      <div class="dropdown dropend prices">
+        <a class="btn btn-main dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          装备卡价格
+        </a>
+
+        <ul class="dropdown-menu">
+          <li class="dropdown-item"><span class="spanner">矛枪</span>5白银</li>
+          <li class="dropdown-item"><span class="spanner">利剑</span>2黄金</li>
+          <li class="dropdown-item"><span class="spanner">加农炮</span>8黄金</li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li class="dropdown-item"><span class="spanner">保镖</span>每轮1白银</li>
+          <li class="dropdown-item"><span class="spanner">木盾</span>5白银</li>
+          <li class="dropdown-item"><span class="spanner">铜盾</span>2黄金</li>
+          <li class="dropdown-item"><span class="spanner">钢盾</span>4黄金</li>
+          <li class="dropdown-item"><span class="spanner">反弹盾</span>8黄金</li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li class="dropdown-item"><span class="spanner">马</span>5白银</li>
+          <li class="dropdown-item"><span class="spanner">骆驼</span>1黄金</li>
+          <li class="dropdown-item"><span class="spanner">马车</span>4黄金</li>
+        </ul>
       </div>
     </div>
   </div>
