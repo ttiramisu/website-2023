@@ -4,77 +4,184 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fall</title>
+  <title>Weave</title>
 
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-    }
-
-    #container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    .color-block {
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      transform-origin: center center;
-      animation: fall 4s linear infinite;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(-30px);
+  <head>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      100% {
-        transform: translateY(calc(100vh - 30px));
+      body {
+        margin: 0;
+        overflow: hidden;
       }
-    }
-  </style>
-</head>
+
+      .color-strip-container-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 50px;
+        background-color: red;
+        /* Set the desired background color */
+        overflow: hidden;
+        animation: moveleft 4s linear infinite;
+      }
+
+      .color-strip-container-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 50px;
+        background-color: orange;
+        /* Set the desired background color */
+        overflow: hidden;
+        animation: moveright 4s linear infinite;
+      }
+
+      .color-strip-container-up {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 100vw;
+        background-color: yellow;
+        /* Set the desired background color */
+        overflow: hidden;
+        animation: moveup 4s linear infinite;
+      }
+
+      .color-strip-container-down {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 100vw;
+        background-color: yellowgreen;
+        /* Set the desired background color */
+        overflow: hidden;
+        animation: movedown 4s linear infinite;
+      }
+
+      @keyframes moveleft {
+        0% {
+          transform: translateX(100vw);
+        }
+
+        100% {
+          transform: translateX(-100vw);
+        }
+      }
+
+      @keyframes moveright {
+        0% {
+          transform: translateX(-100vw);
+        }
+
+        100% {
+          transform: translateX(100vw);
+        }
+      }
+
+      @keyframes moveup {
+        0% {
+          transform: translateY(-100vh);
+        }
+
+        100% {
+          transform: translateY(100vh);
+        }
+      }
+
+      @keyframes movedown {
+        0% {
+          transform: translateY(100vh);
+        }
+
+        100% {
+          transform: translateY(-100vh);
+        }
+      }
+    </style>
+  </head>
 
 <body>
-  <div id="container"></div>
+  <div class="color-strip-container-left" style="top: 0;"></div>
+  <div class="color-strip-container-left" style="top: 100px;"></div>
+  <div class="color-strip-container-left" style="top: 200px;"></div>
+  <div class="color-strip-container-left" style="top: 300px;"></div>
+  <div class="color-strip-container-left" style="top: 400px;"></div>
+  <div class="color-strip-container-left" style="top: 500px;"></div>
+  <div class="color-strip-container-left" style="top: 600px;"></div>
+  <div class="color-strip-container-left" style="top: 700px;"></div>
+  <div class="color-strip-container-left" style="top: 800px;"></div>
+  <div class="color-strip-container-left" style="top: 900px;"></div>
+  <div class="color-strip-container-left" style="top: 1000px;"></div>
+  <div class="color-strip-container-left" style="top: 1100px;"></div>
+  <div class="color-strip-container-left" style="top: 1200px;"></div>
+  <div class="color-strip-container-left" style="top: 1300px;"></div>
+  <div class="color-strip-container-left" style="top: 1400px;"></div>
+  <div class="color-strip-container-left" style="top: 1500px;"></div>
+  <div class="color-strip-container-left" style="top: 1600px;"></div>
 
-  <script>
-    function getRandomBrightColor() {
-      const hue = Math.floor(Math.random() * 360);
-      const saturation = 100; // 100% saturation for bright colors
-      const lightness = 50; // 50% lightness for mid-range brightness
-      return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-    }
+  <div class="color-strip-container-right" style="top: 50px;"></div>
+  <div class="color-strip-container-right" style="top: 150px;"></div>
+  <div class="color-strip-container-right" style="top: 250px;"></div>
+  <div class="color-strip-container-right" style="top: 350px;"></div>
+  <div class="color-strip-container-right" style="top: 450px;"></div>
+  <div class="color-strip-container-right" style="top: 550px;"></div>
+  <div class="color-strip-container-right" style="top: 650px;"></div>
+  <div class="color-strip-container-right" style="top: 750px;"></div>
+  <div class="color-strip-container-right" style="top: 850px;"></div>
+  <div class="color-strip-container-right" style="top: 950px;"></div>
+  <div class="color-strip-container-right" style="top: 1050px;"></div>
+  <div class="color-strip-container-right" style="top: 1150px;"></div>
+  <div class="color-strip-container-right" style="top: 1250px;"></div>
+  <div class="color-strip-container-right" style="top: 1350px;"></div>
+  <div class="color-strip-container-right" style="top: 1450px;"></div>
+  <div class="color-strip-container-right" style="top: 1550px;"></div>
+  <div class="color-strip-container-right" style="top: 1650px;"></div>
 
-    function createColorBlock() {
-      const colorBlock = document.createElement("div");
-      colorBlock.className = "color-block";
+  <div class="color-strip-container-up" style="left: 0;"></div>
+  <div class="color-strip-container-up" style="left: 100px;"></div>
+  <div class="color-strip-container-up" style="left: 200px;"></div>
+  <div class="color-strip-container-up" style="left: 300px;"></div>
+  <div class="color-strip-container-up" style="left: 400px;"></div>
+  <div class="color-strip-container-up" style="left: 500px;"></div>
+  <div class="color-strip-container-up" style="left: 600px;"></div>
+  <div class="color-strip-container-up" style="left: 700px;"></div>
+  <div class="color-strip-container-up" style="left: 800px;"></div>
+  <div class="color-strip-container-up" style="left: 900px;"></div>
+  <div class="color-strip-container-up" style="left: 1000px;"></div>
+  <div class="color-strip-container-up" style="left: 1100px;"></div>
+  <div class="color-strip-container-up" style="left: 1200px;"></div>
+  <div class="color-strip-container-up" style="left: 1300px;"></div>
+  <div class="color-strip-container-up" style="left: 1400px;"></div>
+  <div class="color-strip-container-up" style="left: 1500px;"></div>
+  <div class="color-strip-container-up" style="left: 1600px;"></div>
 
-      const container = document.getElementById("container");
-      const maxWidth = window.innerWidth - 30; // Adjust based on window size
-      const randomX = Math.random() * maxWidth;
+  <div class="color-strip-container-down" style="left: 50px;"></div>
+  <div class="color-strip-container-down" style="left: 150px;"></div>
+  <div class="color-strip-container-down" style="left: 250px;"></div>
+  <div class="color-strip-container-down" style="left: 350px;"></div>
+  <div class="color-strip-container-down" style="left: 450px;"></div>
+  <div class="color-strip-container-down" style="left: 550px;"></div>
+  <div class="color-strip-container-down" style="left: 650px;"></div>
+  <div class="color-strip-container-down" style="left: 750px;"></div>
+  <div class="color-strip-container-down" style="left: 850px;"></div>
+  <div class="color-strip-container-down" style="left: 950px;"></div>
+  <div class="color-strip-container-down" style="left: 1050px;"></div>
+  <div class="color-strip-container-down" style="left: 1150px;"></div>
+  <div class="color-strip-container-down" style="left: 1250px;"></div>
+  <div class="color-strip-container-down" style="left: 1350px;"></div>
+  <div class="color-strip-container-down" style="left: 1450px;"></div>
+  <div class="color-strip-container-down" style="left: 1550px;"></div>
+  <div class="color-strip-container-down" style="left: 1650px;"></div>
 
-      colorBlock.style.left = `${randomX}px`;
-      colorBlock.style.backgroundColor = getRandomBrightColor();
-
-      container.appendChild(colorBlock);
-    }
-
-    function createAndAnimateColorBlock() {
-      createColorBlock();
-
-      setTimeout(() => {
-        createAndAnimateColorBlock();
-      }, 100); // Adjust the interval between block creation
-    }
-
-    createAndAnimateColorBlock();
-  </script>
 </body>
 
 </html>
