@@ -100,7 +100,7 @@ def page_not_found(e):
 ###############################
 @app.route('/thanks')
 def thanks():
-    return render_template('easter/thanks.txt')
+    return render_template('easter/thanks.html')
 
 ###############################
 ######## RUN TIME CODE ########
