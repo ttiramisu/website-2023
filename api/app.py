@@ -102,6 +102,10 @@ def page_not_found(e):
 def thanks():
     return render_template('easter/thanks.html')
 
+@app.route('/falling')
+def falling():
+    return render_template('easter/troll.html')
+
 ###############################
 ######## RUN TIME CODE ########
 ###############################

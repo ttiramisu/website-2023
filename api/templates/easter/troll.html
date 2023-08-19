@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .color-block {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      transform-origin: center center;
+      animation: fall 4s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-30px);
+      }
+
+      100% {
+        transform: translateY(calc(100vh - 30px));
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+
+  <script>
+    function getRandomBrightColor() {
+      const hue = Math.floor(Math.random() * 360);
+      const saturation = 100; // 100% saturation for bright colors
+      const lightness = 50; // 50% lightness for mid-range brightness
+      return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    }
+
+    function createColorBlock() {
+      const colorBlock = document.createElement("div");
+      colorBlock.className = "color-block";
+
+      const container = document.getElementById("container");
+      const maxWidth = window.innerWidth - 30; // Adjust based on window size
+      const randomX = Math.random() * maxWidth;
+
+      colorBlock.style.left = `${randomX}px`;
+      colorBlock.style.backgroundColor = getRandomBrightColor();
+
+      container.appendChild(colorBlock);
+    }
+
+    function createAndAnimateColorBlock() {
+      createColorBlock();
+
+      setTimeout(() => {
+        createAndAnimateColorBlock();
+      }, 100); // Adjust the interval between block creation
+    }
+
+    createAndAnimateColorBlock();
+  </script>
+</body>
+
+</html>
