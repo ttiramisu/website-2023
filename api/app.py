@@ -95,14 +95,12 @@ def page_not_found(e):
 def page_not_found(e):
 	return render_template("500.html"), 500
 
-# @app.route('/404')
-# def error_404():
-#     return render_template('404.html')
-
-# @app.route('/500')
-# def error_500():
-#     return render_template('500.html')
-
+###############################
+########### EASTER ############
+###############################
+@app.route('/thanks')
+def thanks():
+    return render_template('thanks.txt')
 
 ###############################
 ######## RUN TIME CODE ########
