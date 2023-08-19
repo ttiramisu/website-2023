@@ -52,7 +52,7 @@
             <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="" class="player">
             <h1>玩家一</h1>
           </div>
-          <div class="flex column">
+          <div class="flex column gap-05">
             <div class="flex gap-05 start">
               <div class="fixed-text">粮食：</div>
               <div class="flex gap-05 end">
@@ -89,21 +89,30 @@
             <img src="https://cdn-icons-png.flaticon.com/512/2815/2815428.png" alt="" class="player">
             <h1>玩家二</h1>
           </div>
-          <div class="flex column">
-            <div>粮食：
-              <span class="food">10</span>
-              <button class="add-minus flex flex" data-player="2" data-type="food" data-action="add">+</button>
-              <button class="add-minus flex flex" data-player="2" data-type="food" data-action="minus">-</button>
+          <div class="flex column gap-05">
+            <div class="flex gap-05 start">
+              <div class="fixed-text">粮食：</div>
+              <div class="flex gap-05 end">
+                <button class="add-minus flex flex" data-player="2" data-type="food" data-action="minus">-</button>
+                <span class="food">10</span>
+                <button class="add-minus flex flex" data-player="2" data-type="food" data-action="add">+</button>
+              </div>
             </div>
-            <div>&nbsp;&nbsp;&nbsp;&nbsp;水：
-              <span class="water">10</span>
-              <button class="add-minus flex flex" data-player="2" data-type="water" data-action="add">+</button>
-              <button class="add-minus flex flex" data-player="2" data-type="water" data-action="minus">-</button>
+            <div class="flex gap-05 start">
+              <div class="fixed-text">水：</div>
+              <div class="flex gap-05 end">
+                <button class="add-minus flex flex" data-player="2" data-type="water" data-action="minus">-</button>
+                <span class="water">10</span>
+                <button class="add-minus flex flex" data-player="2" data-type="water" data-action="add">+</button>
+              </div>
             </div>
-            <div>体力值：
-              <span class="health">10</span>
-              <button class="add-minus flex flex" data-player="2" data-type="health" data-action="add">+</button>
-              <button class="add-minus flex flex" data-player="2" data-type="health" data-action="minus">-</button>
+            <div class="flex gap-05 start">
+              <div class="fixed-text">体力值：</div>
+              <div class="flex gap-05 end">
+                <button class="add-minus flex flex" data-player="2" data-type="health" data-action="minus">-</button>
+                <span class="health">10</span>
+                <button class="add-minus flex flex" data-player="2" data-type="health" data-action="add">+</button>
+              </div>
             </div>
           </div>
         </div>
