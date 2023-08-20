@@ -96,17 +96,6 @@ def page_not_found(e):
 	return render_template("500.html"), 500
 
 ###############################
-########### EASTER ############
-###############################
-@app.route('/thanks')
-def thanks():
-    return render_template('easter/thanks.html')
-
-@app.route('/falling')
-def falling():
-    return render_template('easter/troll.html')
-
-###############################
 ######## RUN TIME CODE ########
 ###############################
 if __name__ == "__main__":
